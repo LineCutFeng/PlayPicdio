@@ -92,7 +92,7 @@ public static Bitmap createAsciiPic(final String path, Context context) {
         return textAsBitmap(text, context);
 //        return image;
     }
-    ```
+```
 - 第三步将ascii码化的图片进行处理，如果是视频就就行合并。
 使用了ffmpeg进行视频合并，先拼ffmpeg命令
 ```java
