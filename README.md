@@ -175,7 +175,7 @@ public static String[] concatVideo(String _filePath, String _outPath,String fps)
         };
         ThreadPoolUtils.execute(compoundRun);
 ```
-子线程内跑调用ffmpeg的本地方法
+子线程内跑调用ffmpeg的本地方法将图片序列合并成视频
 ```java
 public native static int run(String[] commands);
 ```
