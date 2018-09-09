@@ -4,7 +4,7 @@
 ### 效果图
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/step.jpg"  width=40% height=70%/>
 </br>
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/fzk.gif"  width=40% height=70%/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/zhuangbi.jpg"  width=40% height=70%/>
 </br>
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/beach.jpg"  width=40% height=70%/>
 - 第一步选择媒体文件。
@@ -204,6 +204,6 @@ JNIEXPORT jint JNICALL Java_codepig_ffmpegcldemo_FFmpegKit_run
 ```
 最后得到视频
 </br>
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/zhuangbi.jpg"  width=40% height=70%/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/fzk.gif"  width=40% height=70%/>
 </br>
 小小的遗憾，调用Intent打开视频，显示文件不存在- -，其实文件在那个目录下呢- -!
