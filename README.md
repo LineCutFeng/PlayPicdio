@@ -2,13 +2,13 @@
 ### Android picture or video to ascii pic or video.
 ### 安卓 图片或者视频转化成 ascii码的图片或视频。
 ### 效果图
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/step.jpg"  width=40% height=70%/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/step.jpg"  width=40%/>
 </br>
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lenna.jpg"  width=40% height=70%/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lenna.jpg"  width=40%/>
 </br>
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/zhuangbi.jpg"  width=40% height=70%/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/zhuangbi.jpg"  width=40%/>
 </br>
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/beach.jpg"  width=40% height=70%/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/beach.jpg"  width=40%/>
 - 第一步选择媒体文件。
 
 这里使用了一个选择图片的类库  'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
@@ -206,6 +206,6 @@ JNIEXPORT jint JNICALL Java_codepig_ffmpegcldemo_FFmpegKit_run
 ```
 最后得到视频
 </br>
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/fzk.gif"  width=40% height=70%/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/fzk.gif"  width=40%/>
 </br>
 小小的遗憾，调用Intent打开视频，显示文件不存在- -，其实文件在那个目录下呢- -!
