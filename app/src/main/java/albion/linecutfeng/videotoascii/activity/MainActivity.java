@@ -2,17 +2,14 @@ package albion.linecutfeng.videotoascii.activity;
 
 import android.Manifest;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
@@ -162,7 +159,7 @@ public class MainActivity extends BaseActivity {
             Bitmap bitmap = CommonUtil.createAsciiPic(path, MainActivity.this);
             FileOutputStream fos = null;
             try {
-                fos = new FileOutputStream(basePath + "/"+tvPath.getText().toString().trim());
+                fos = new FileOutputStream(basePath + "/" + tvPath.getText().toString().trim());
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
                 fos.flush();
             } catch (FileNotFoundException e) {
@@ -241,7 +238,7 @@ public class MainActivity extends BaseActivity {
         if (!file.exists()) return;
         String fileName = file.getName();
         int i = fileName.lastIndexOf(".");
-        if (i == -1 || i == 1) {
+        if (i == -1 || i == 0) {
             Toast.makeText(this, "媒体格式不对，无法进行拼接", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -333,8 +330,8 @@ public class MainActivity extends BaseActivity {
             File file = new File(path);
             if (file.exists()) {
                 mediaPath = path;
+                tvPath.setText(file.getName());
                 if (isPic) {
-                    tvPath.setText(file.getName());
                     GlideApp
                             .with(this)
                             .load(path)
