@@ -197,3 +197,5 @@ JNIEXPORT jint JNICALL Java_codepig_ffmpegcldemo_FFmpegKit_run
     return run(argc, argv);
 }
 ```
+最后得到视频
+小小的遗憾，调用Intent打开视频，显示文件不存在- -，其实文件在那个目录下呢- -!
