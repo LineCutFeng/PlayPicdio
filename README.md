@@ -4,6 +4,8 @@
 ### 效果图
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/step.jpg"  width=40% height=70%/>
 </br>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lenna.jpg"  width=40% height=70%/>
+</br>
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/zhuangbi.jpg"  width=40% height=70%/>
 </br>
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/beach.jpg"  width=40% height=70%/>
