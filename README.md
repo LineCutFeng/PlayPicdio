@@ -53,4 +53,44 @@ public static void choosePhoto(Activity context, int requestCode) {
 ```
 
 - 第二步进行媒体文件ascii码化。
+如果媒体文件是图片，直接进行转化,这里首先对Bitmap的全部像素点进行了灰度转化，因为对图片进行了采样式缩放1:7的话，就是每7个点采集一个，这样大概会按照一个ascii码对应7没有缩放的像素点的尺寸，不同灰度采用不同的ascii码替换，代码如下：
+```java
+public static Bitmap createAsciiPic(final String path, Context context) {
+        final String base = "#8XOHLTI)i=+;:,.";// 字符串由复杂到简单
+//        final String base = "#,.0123456789:;@ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";// 字符串由复杂到简单
+        StringBuilder text = new StringBuilder();
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics dm = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(dm);
+        int width = dm.widthPixels;
+        int height = dm.heightPixels;
+        Bitmap image = BitmapFactory.decodeFile(path);  //读取图片
+        int width0 = image.getWidth();
+        int height0 = image.getHeight();
+        int width1, height1;
+        int scale = 7;
+        if (width0 <= width / scale) {
+            width1 = width0;
+            height1 = height0;
+        } else {
+            width1 = width / scale;
+            height1 = width1 * height0 / width0;
+        }
+        image = scale(path, width1, height1);  //读取图片
+        //输出到指定文件中
+        for (int y = 0; y < image.getHeight(); y += 2) {
+            for (int x = 0; x < image.getWidth(); x++) {
+                final int pixel = image.getPixel(x, y);
+                final int r = (pixel & 0xff0000) >> 16, g = (pixel & 0xff00) >> 8, b = pixel & 0xff;
+                final float gray = 0.299f * r + 0.578f * g + 0.114f * b;
+                final int index = Math.round(gray * (base.length() + 1) / 255);
+                String s = index >= base.length() ? " " : String.valueOf(base.charAt(index));
+                text.append(s);
+            }
+            text.append("\n");
+        }
+        return textAsBitmap(text, context);
+//        return image;
+    }
+    ```
 - 第三步将ascii码化的图片进行处理，如果是视频就就行合并。
