@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AlertDialog;
@@ -18,9 +17,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.luck.picture.lib.permissions.RxPermissions;
@@ -47,6 +48,8 @@ import butterknife.OnClick;
 import codepig.ffmpegcldemo.FFmpegKit;
 import io.reactivex.functions.Consumer;
 
+import static albion.linecutfeng.videotoascii.app.AppConfig.*;
+import static albion.linecutfeng.videotoascii.app.AppConfig.PIC_LIST_PATH;
 import static com.luck.picture.lib.config.PictureConfig.CHOOSE_REQUEST;
 
 public class MainActivity extends BaseActivity {
@@ -67,15 +70,14 @@ public class MainActivity extends BaseActivity {
     TextView tvPath;
     @BindView(R.id.iv_show)
     public ImageView ivShow;
+    @BindView(R.id.switch_color)
+    public Switch aSwitch;
 
     public static final int FILE_REQUEST_CODE = 101;
     Enum fileType = FILE_TYPE.none;
     public MediaDecoder mediaDecoder;
     String mediaPath = "";
-    public static final String basePath = Environment.getExternalStorageDirectory().getPath() + "/albion.linecutfeng.videotoascii";
-    public static final String picListPath = basePath + "/picList";
-    String[] fpsStringArray = new String[]{"5fps", "10fps", "20fps", "25fps"};
-    String[] formatStringArray = new String[]{"avi", "mp4", "gif"};
+
     int fps = 5;
     MyOnEncoderListener myOnEncoderListener = new MyOnEncoderListener();
 //    int mediaWidth = 0;
@@ -86,8 +88,6 @@ public class MainActivity extends BaseActivity {
     enum FILE_TYPE {
         none, pic, video;
     }
-
-    EncodeThread.OnEncoderListener onEncoderListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +104,7 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public void accept(Boolean granted) throws Exception {
                         if (granted) {
-                            File file = new File(picListPath);
+                            File file = new File(PIC_LIST_PATH);
                             if (!file.exists()) {
                                 file.mkdirs();
                             } else if (file.isFile()) {
@@ -117,6 +117,12 @@ public class MainActivity extends BaseActivity {
                             }
                         } else {
                             Toast.makeText(MainActivity.this, "未获取到SD卡读写权限，玩毛线", Toast.LENGTH_SHORT).show();
+                            mHander.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    finish();
+                                }
+                            }, 1500);
                         }
                     }
                 });
@@ -159,7 +165,7 @@ public class MainActivity extends BaseActivity {
             Bitmap bitmap = CommonUtil.createAsciiPic(path, MainActivity.this);
             FileOutputStream fos = null;
             try {
-                fos = new FileOutputStream(basePath + "/" + tvPath.getText().toString().trim());
+                fos = new FileOutputStream(BASE_PATH + "/" + tvPath.getText().toString().trim());
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
                 fos.flush();
             } catch (FileNotFoundException e) {
@@ -176,25 +182,18 @@ public class MainActivity extends BaseActivity {
 
             ivShow.setImageBitmap(bitmap);
         } else if (fileType == FILE_TYPE.video) {
+            final int[] intArray = getResources().getIntArray(R.array.fps_array);
+            if (intArray == null || intArray.length == 0) return;
+            String[] fpsArray = new String[intArray.length];
+            for (int i = 0; i < fpsArray.length; i++) {
+                fpsArray[i] = intArray[i] + "fps";
+            }
             new AlertDialog.Builder(this)
                     .setTitle("请选择视频pfs（1秒的帧数）")
-                    .setSingleChoiceItems(fpsStringArray, 0, new DialogInterface.OnClickListener() {
+                    .setSingleChoiceItems(fpsArray, 0, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            switch (which) {
-                                case 0:
-                                    fps = 5;
-                                    break;
-                                case 1:
-                                    fps = 10;
-                                    break;
-                                case 2:
-                                    fps = 20;
-                                    break;
-                                case 3:
-                                    fps = 25;
-                                    break;
-                            }
+                            fps = intArray[which];
                             mediaDecoder = new MediaDecoder(path);
                             String videoFileLength = mediaDecoder.getVideoFileLength();
                             int encodeTotalCount = 0;
@@ -215,12 +214,13 @@ public class MainActivity extends BaseActivity {
     }
 
     private void selectFormat() {
+        final String[] videoFormatArray = getResources().getStringArray(R.array.video_format);
         new AlertDialog.Builder(this)
                 .setTitle("请选择将要合成的格式")
-                .setSingleChoiceItems(formatStringArray, 0, new DialogInterface.OnClickListener() {
+                .setSingleChoiceItems(videoFormatArray, 0, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        ffmpegMerge(formatStringArray[which]);
+                        ffmpegMerge(videoFormatArray[which]);
                         dialog.dismiss();
                     }
                 }).show();
@@ -243,7 +243,7 @@ public class MainActivity extends BaseActivity {
             return;
         }
         final String videoName = fileName.substring(0, i) + "." + format;
-        String[] commands = ffmpegCommandCentre.concatVideo(picListPath, basePath + "/" + videoName, fps + "");
+        String[] commands = ffmpegCommandCentre.concatVideo(PIC_LIST_PATH, BASE_PATH + "/" + videoName, fps + "");
         final String[] _commands = commands;
         Runnable compoundRun = new Runnable() {
             @Override
@@ -273,7 +273,7 @@ public class MainActivity extends BaseActivity {
                             public void run() {
                                 dismissDialog();
                                 Toast.makeText(MainActivity.this, "合并完成，请进入目录" + "SD卡下/albion.linecutfeng.videotoascii/目录" + "查看", Toast.LENGTH_SHORT).show();
-//                                showOpenDialog(basePath + "/" + videoName);
+//                                showOpenDialog(BASE_PATH + "/" + videoName);
                             }
                         });
                         Log.d("FFmpegLog LOGCAT", "FFmpeg 命令行执行完成...");

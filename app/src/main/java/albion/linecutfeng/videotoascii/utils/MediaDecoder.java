@@ -14,6 +14,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
+/**
+ * 预览视频帧
+ */
 public class MediaDecoder {
     private static final String TAG = "MediaDecoder";
     private MediaMetadataRetriever retriever = null;

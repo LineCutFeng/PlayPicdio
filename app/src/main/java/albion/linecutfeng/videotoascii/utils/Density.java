@@ -9,6 +9,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
 
+/**
+ * 今日头条屏幕适配方案
+ */
 public class Density {
     private static float appDensity;
     private static float appScaledDensity;

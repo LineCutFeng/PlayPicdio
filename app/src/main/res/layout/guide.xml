@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/bt_1"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bt_bg_1"
+            android:text="图片视频转ascii码"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/bt_2"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bt_bg_2"
+            android:text="图片低多边形化"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/bt_3"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bt_bg_3"
+            android:text="人工智能风格迁移"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/bt_4"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bt_bg_4"
+            android:text="二次元新海诚滤镜"
+            android:textSize="22sp" />
+    </LinearLayout>
+</RelativeLayout>

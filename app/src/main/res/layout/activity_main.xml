@@ -56,6 +56,7 @@
                     android:layout_height="wrap_content"
                     android:text="开始转化" />
 
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -64,14 +65,22 @@
 
             </LinearLayout>
 
+            <Switch
+                android:id="@+id/switch_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="图片彩色"
+                android:textColor="#666" />
+
 
             <ImageView
                 android:id="@+id/iv_show"
                 android:layout_width="250dp"
                 android:layout_height="250dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@mipmap/bili"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="20dp"
+                android:src="@mipmap/bili" />
 
             <ProgressBar
                 android:id="@+id/progress"
@@ -108,9 +117,9 @@
 
     <TextView
         android:id="@+id/tv_log"
-        android:text="相关文件都保存在了SD卡下/albion.linecutfeng.videotoascii目录中"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:text="相关文件都保存在了SD卡下/albion.linecutfeng.videotoascii目录中" />
 
 </RelativeLayout>

@@ -3,6 +3,9 @@ package albion.linecutfeng.videotoascii.utils;
 import java.util.HashMap;
 import java.util.Iterator;
 
+/**
+ * 判断文件类型
+ */
 public class MediaFile {
 
     // comma separated list of all file extensions supported by the media scanner

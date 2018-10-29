@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 
 import albion.linecutfeng.videotoascii.activity.MainActivity;
+import albion.linecutfeng.videotoascii.app.AppConfig;
 
 public class EncodeThread extends Thread {
 
@@ -58,7 +59,7 @@ public class EncodeThread extends Thread {
             FileOutputStream fos;
             try {
                 String format = String.format("%05d", i);
-                fos = new FileOutputStream(MainActivity.picListPath + File.separator + "test" + format + ".png", false);
+                fos = new FileOutputStream(AppConfig.PIC_LIST_PATH + File.separator + "test" + format + ".png", false);
                 bitmapTemp.compress(Bitmap.CompressFormat.PNG, 100, fos);
                 fos.flush();
                 fos.close();
@@ -90,31 +91,6 @@ public class EncodeThread extends Thread {
             }
         });
 
-//            File file = new File(outPath);
-//            if (file.exists() && file.isDirectory()) {
-//                String[] list = file.list();
-//                List<String> fileStringList = Arrays.asList(list);
-//                Collections.sort(fileStringList, new Comparator<String>() {
-//                    @Override
-//                    public int compare(String o1, String o2) {
-//                        return o1.compareTo(o2);
-//                    }
-//                });
-//                try {
-//                    CreateVideoUtil.createVideo("liuqiangdong.mp4", fileStringList, MainActivity.this, outPath, new ZCreateListener() {
-//                        @Override
-//                        public void onComplete(String path) {
-//                            mHandler.post(new Runnable() {
-//                                @Override
-//                                public void run() {
-//                                    Toast.makeText(MainActivity.this, "合成图片完成", Toast.LENGTH_SHORT).show();
-//                                }
-//                            });
-//                        }
-//                    });
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
     }
 
     public interface OnEncoderListener {
