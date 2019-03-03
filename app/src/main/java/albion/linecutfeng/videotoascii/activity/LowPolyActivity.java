@@ -3,6 +3,7 @@ package albion.linecutfeng.videotoascii.activity;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -60,7 +61,6 @@ public class LowPolyActivity extends BaseActivity {
 
     public static final int FILE_REQUEST_CODE = 101;
     String oldPicPath = null;
-    String newPicPath = null;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -111,23 +111,22 @@ public class LowPolyActivity extends BaseActivity {
                         return file.exists();
                     }
                 })
-                .flatMap(new Function<String, ObservableSource<String>>() {
+                .flatMap(new Function<String, ObservableSource<Bitmap>>() {
                     @Override
-                    public ObservableSource<String> apply(String s) throws Exception {
+                    public ObservableSource<Bitmap> apply(String s) throws Exception {
                         File file = new File(s);
-                        BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream((BASE_PATH + file.getName().substring(0, file.getName().indexOf(".")) + "_lowpoly.png")));
+                        BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream((BASE_PATH + File.separator + file.getName().substring(0, file.getName().indexOf(".")) + "_lowpoly.png")));
                         BufferedInputStream bis = new BufferedInputStream(new FileInputStream(oldPicPath));
-                        LowPoly.generate(bis, bos);
-                        return Observable.just(BASE_PATH + file.getName().substring(0, file.getName().indexOf(".")) + "_lowpoly.png");
+                        Bitmap generate = LowPoly.generate(bis, bos);
+                        return Observable.just(generate);
                     }
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<String>() {
+                .subscribe(new Consumer<Bitmap>() {
                     @Override
-                    public void accept(String s) throws Exception {
+                    public void accept(Bitmap s) throws Exception {
                         dismissDialog();
-                        newPicPath = s;
                         GlideApp.with(LowPolyActivity.this)
                                 .load(s)
                                 .into(ivShow);

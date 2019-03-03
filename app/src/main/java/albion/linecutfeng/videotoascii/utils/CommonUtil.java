@@ -63,7 +63,7 @@ public class CommonUtil {
 //                .circleDimmedLayer(true)// 是否圆形裁剪 true or false
 //                .showCropFrame(false)// 是否显示裁剪矩形边框 圆形裁剪时建议设为false   true or false
 //                .showCropGrid(false)// 是否显示裁剪矩形网格 圆形裁剪时建议设为false    true or false
-                .openClickSound(true)// 是否开启点击声音 true or false
+                .openClickSound(false)// 是否开启点击声音 true or false
 //                .selectionMedia()// 是否传入已选图片 List<LocalMedia> list
 //                .previewEggs()// 预览图片时 是否增强左右滑动图片体验(图片滑动一半即可看到上一张是否选中) true or false
 //                .cropCompressQuality(90)// 裁剪压缩质量 默认90 int

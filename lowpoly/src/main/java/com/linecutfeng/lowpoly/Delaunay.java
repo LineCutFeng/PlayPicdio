@@ -92,10 +92,6 @@ final class Delaunay {
         return new Circumcircle(i, j, k, xc, yc, (dx * dx + dy * dy));
     }
 
-    /**
-     * 去重
-     * @param edges
-     */
     private static void dedup(ArrayList<Integer> edges) {
         int a, b, m, n;
         for (int j = edges.size(); j > 0; ) {
@@ -235,5 +231,4 @@ final class Delaunay {
             this.r = r;
         }
     }
-
 }

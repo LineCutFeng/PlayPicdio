@@ -35,10 +35,10 @@ public class GuideActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt_1:
-                startActivity(new Intent(this,MainActivity.class));
+                startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.bt_2:
-                startActivity(new Intent(this,LowPolyActivity.class));
+                startActivity(new Intent(this, LowPolyActivity.class));
                 break;
             case R.id.bt_3:
                 Toast.makeText(this, "敬请期待~", Toast.LENGTH_SHORT).show();
@@ -47,5 +47,10 @@ public class GuideActivity extends BaseActivity {
                 Toast.makeText(this, "敬请期待~", Toast.LENGTH_SHORT).show();
                 break;
         }
+    }
+
+    public static void main(String[] args) {
+        double i = ((short) (0x77) | 0x42 << 8) / 32768.0 * 180;
+        System.out.println(i);
     }
 }

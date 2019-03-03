@@ -1,14 +1,17 @@
 package com.linecutfeng.lowpoly;
 
 import android.graphics.Bitmap;
-import android.graphics.Color;
+import android.util.Log;
 
-/**
- * Created by zhou on 16-5-11.
- * <p/>
- * 边缘检测算法
- */
-final class Sobel {
+import java.util.ArrayList;
+
+class Sobel {
+
+    static {
+        System.loadLibrary("sobel");
+    }
+
+    public static native void sobelFromNative(int[] pixel, int width, int height, ArrayList<int[]> backList);
 
     private static final int[][] kernelX = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
 
@@ -17,6 +20,8 @@ final class Sobel {
     static void sobel(Bitmap image, SobelCallback callback) {
         int w = image.getWidth();
         int h = image.getHeight();
+
+        int count = 0;
 
         for (int y = 0; y < h; y++) {
             for (int x = 0; x < w; x++) {
@@ -50,13 +55,7 @@ final class Sobel {
 
     }
 
-    /**
-     * 计算一个bitmap一像素的rgb平均值
-     * @param image
-     * @param x
-     * @param y
-     * @return
-     */
+
     private static int getAvg(Bitmap image, int x, int y) {
         if (x < 0 || y < 0 || x >= image.getWidth() || y >= image.getHeight()) {
             return 0;

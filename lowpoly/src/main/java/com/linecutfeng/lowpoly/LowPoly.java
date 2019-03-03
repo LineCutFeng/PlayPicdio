@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,7 +19,6 @@ import java.util.List;
  * LowPoly图片生成器
  */
 public final class LowPoly {
-
     public static Bitmap generate(InputStream inputStream, OutputStream outputStream) throws IOException {
         return generate(inputStream, outputStream, 50, 1, true, Bitmap.CompressFormat.PNG, 100, false);
     }
@@ -41,21 +41,25 @@ public final class LowPoly {
             return null;
         }
         Bitmap image = BitmapFactory.decodeStream(inputStream);
-
         int width = image.getWidth();
         int height = image.getHeight();
 
         final ArrayList<int[]> collectors = new ArrayList<>();
         ArrayList<int[]> particles = new ArrayList<>();
 
-        Sobel.sobel(image, new Sobel.SobelCallback() {
-            @Override
-            public void call(int magnitude, int x, int y) {
-                if (magnitude > 40) {
-                    collectors.add(new int[]{x, y});
-                }
-            }
-        });
+        int[] pixels = new int[width * height];
+        image.getPixels(pixels, 0, width, 0, 0, width, height);
+        Sobel.sobelFromNative(pixels,width,height,collectors);
+//        Sobel.sobel(image, new Sobel.SobelCallback() {
+//            @Override
+//            public void call(int magnitude, int x, int y) {
+//                if (magnitude > 40) {
+//                    collectors.add(new int[]{x, y});
+//                }
+//            }
+//        });
+        Log.i("icv", "特征点处理完成，数目为：" + collectors.size());
+
 
         for (int i = 0; i < 100; i++) {
             particles.add(new int[]{(int) (Math.random() * width), (int) (Math.random() * height)});
@@ -74,6 +78,7 @@ public final class LowPoly {
         particles.add(new int[]{width, height});
 
         List<Integer> triangles = Delaunay.triangulate(particles);
+        Log.i("icv", "三角形处理完成");
 
         float x1, x2, x3, y1, y2, y3, cx, cy;
 
@@ -105,13 +110,13 @@ public final class LowPoly {
 
             canvas.drawPath(path, paint);
         }
+        Log.i("icv", "绘制完成");
 
         if (outputStream == null) {
             return out;
         } else {
             out.compress(format, quality, outputStream);
-            out.recycle();
-            return null;
+            return out;
         }
     }
 }

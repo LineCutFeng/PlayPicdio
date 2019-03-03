@@ -1,1 +1,2 @@
-include ':app', ':lowpoly'
+include ':app'
+include ':lowpoly'
