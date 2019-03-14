@@ -1,2 +1,2 @@
-include ':app', ':emojimosaic', ':open'
+include ':app', ':emojimosaic'
 include ':lowpoly'
