@@ -19,11 +19,18 @@ android {
 //        }
     }
 
-    externalNativeBuild {
-        cmake {
-            path "src/main/cpp/CMakeLists.txt"
+    sourceSets {
+        main {
+//            jniLibs.srcDirs = ['libs']
+            jni.srcDirs = []
         }
     }
+
+//    externalNativeBuild {
+//        cmake {
+//            path "src/main/cpp/CMakeLists.txt"
+//        }
+//    }
 
 
     buildTypes {
