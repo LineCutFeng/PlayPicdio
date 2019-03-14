@@ -18,13 +18,11 @@ csdn：https://blog.csdn.net/u010308894/article/details/82689023
 </br>
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/girl_lowpoly.png"  width=40%/>
 </br>
-
 ### emoji-masic效果图
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/miku.png"  width=40%/>
 </br>
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/kubaki.png"  width=40%/>
 </br>
-
 - 第一步选择媒体文件。
 
 这里使用了一个选择图片的类库  'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
