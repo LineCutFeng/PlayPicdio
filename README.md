@@ -23,8 +23,10 @@ csdn：https://blog.csdn.net/u010308894/article/details/82689023
 </br>
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/kubaki.png"  width=40%/>
 </br>
+
 - 进行媒体文件ascii码化。
 如果媒体文件是图片，直接进行转化,这里首先对Bitmap的全部像素点进行了灰度转化，因为对图片进行了采样式缩放1:7的话，就是每7个点采集一个，这样大概会按照一个ascii码对应一个的像素点的，不同灰度采用不同的ascii码替换，代码如下：
+
 ```java
 public static Bitmap createAsciiPic(final String path, Context context) {
         final String base = "#8XOHLTI)i=+;:,.";// 字符串由复杂到简单
