@@ -16,8 +16,13 @@ public final class Delaunay {
         System.loadLibrary("delaunay");
     }
 
-    private static final float EPSILON = 1.0f / 1048576.0f;
+    private static final float EPSILON = 1.0f / 1048576.0f;//1024*1024
 
+    /**
+     * 找到大三角形
+     * @param vertices 内存储x,y坐标对int[] 长度为2
+     * @return
+     */
     private static int[][] supertriangle(List<int[]> vertices) {
         int xmin = Integer.MAX_VALUE;
         int ymin = Integer.MAX_VALUE;
@@ -42,9 +47,20 @@ public final class Delaunay {
         xmid = (xmin + dx * 0.5f);
         ymid = (ymin + dy * 0.5f);
 
-        return new int[][]{{(int) (xmid - 20 * dmax), (int) (ymid - dmax)},
-                {(int) xmid, (int) (ymid + 20 * dmax)},
-                {(int) (xmid + 20 * dmax), (int) (ymid - dmax)}};
+        float extra = 0;
+        if (((dx / 10) > 1) || ((dy / 10) > 1)) {
+            extra = Math.min(dx / 10f, 10f);
+        } else {
+            extra = 10f;
+        }
+        return new int[][]{
+                {(int) (xmin - dx / 2 - extra), (int) (ymin - extra)},
+                {((int) (xmax + dx / 2 + extra)), ((int) (ymin - extra))},
+                {(int) (xmid), ((int) (ymax + dy))}
+        };
+//        return new int[][]{{(int) (xmid - 20 * dmax), (int) (ymid - dmax)},
+//                {(int) xmid, (int) (ymid + 20 * dmax)},
+//                {(int) (xmid + 20 * dmax), (int) (ymid - dmax)}};
     }
 
     private static Circumcircle circumcircle(List<int[]> vertices, int i, int j, int k) {
