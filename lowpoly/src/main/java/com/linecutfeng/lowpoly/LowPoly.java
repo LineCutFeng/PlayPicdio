@@ -48,12 +48,13 @@ public final class LowPoly {
         ArrayList<int[]> particles = new ArrayList<>();
 
         int[] pixels = new int[width * height];
+        Log.i("icv", "数组大小为：" + pixels.length);
         image.getPixels(pixels, 0, width, 0, 0, width, height);
         Sobel.sobelFromNative(pixels,width,height,collectors);
 //        Sobel.sobel(image, new Sobel.SobelCallback() {
 //            @Override
 //            public void call(int magnitude, int x, int y) {
-//                if (magnitude > 40) {
+//                if (magnitude > 20) {
 //                    collectors.add(new int[]{x, y});
 //                }
 //            }
@@ -72,10 +73,12 @@ public final class LowPoly {
             collectors.remove(random);
         }
 
+        //添加上下左右四个点
         particles.add(new int[]{0, 0});
         particles.add(new int[]{0, height});
         particles.add(new int[]{width, 0});
         particles.add(new int[]{width, height});
+
 
         List<Integer> triangles = Delaunay.triangulate(particles);
         Log.i("icv", "三角形处理完成");

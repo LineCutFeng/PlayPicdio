@@ -34,12 +34,22 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
+            android:background="@drawable/bt_bg_4"
+            android:text="emoji表情蒙太奇"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/bt_4"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
             android:background="@drawable/bt_bg_3"
             android:text="人工智能风格迁移"
             android:textSize="22sp" />
 
         <Button
-            android:id="@+id/bt_4"
+            android:id="@+id/bt_5"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"

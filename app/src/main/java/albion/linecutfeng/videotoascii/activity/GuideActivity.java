@@ -22,6 +22,8 @@ public class GuideActivity extends BaseActivity {
     Button bt3;
     @BindView(R.id.bt_4)
     Button bt4;
+    @BindView(R.id.bt_5)
+    Button bt5;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,9 +43,12 @@ public class GuideActivity extends BaseActivity {
                 startActivity(new Intent(this, LowPolyActivity.class));
                 break;
             case R.id.bt_3:
-                Toast.makeText(this, "敬请期待~", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, EmojiMosaicActivity.class));
                 break;
             case R.id.bt_4:
+                Toast.makeText(this, "敬请期待~", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.bt_5:
                 Toast.makeText(this, "敬请期待~", Toast.LENGTH_SHORT).show();
                 break;
         }

@@ -10,7 +10,11 @@ import java.util.List;
  * <p/>
  * Delaunay算法
  */
-final class Delaunay {
+public final class Delaunay {
+
+    static {
+        System.loadLibrary("delaunay");
+    }
 
     private static final float EPSILON = 1.0f / 1048576.0f;
 
@@ -120,6 +124,8 @@ final class Delaunay {
             }
         }
     }
+
+    public static native List<Integer> triangulateFromNative(List<int[]> vertices);
 
     static List<Integer> triangulate(final List<int[]> vertices) {
         int n = vertices.size();

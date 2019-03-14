@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.linecutfeng.lowpoly.Delaunay;
 import com.linecutfeng.lowpoly.LowPoly;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.entity.LocalMedia;
@@ -26,6 +27,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 
 import albion.linecutfeng.videotoascii.R;

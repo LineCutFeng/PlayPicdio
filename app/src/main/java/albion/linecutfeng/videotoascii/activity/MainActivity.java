@@ -21,7 +21,6 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.luck.picture.lib.permissions.RxPermissions;
@@ -48,7 +47,7 @@ import butterknife.OnClick;
 import codepig.ffmpegcldemo.FFmpegKit;
 import io.reactivex.functions.Consumer;
 
-import static albion.linecutfeng.videotoascii.app.AppConfig.*;
+import static albion.linecutfeng.videotoascii.app.AppConfig.BASE_PATH;
 import static albion.linecutfeng.videotoascii.app.AppConfig.PIC_LIST_PATH;
 import static com.luck.picture.lib.config.PictureConfig.CHOOSE_REQUEST;
 
@@ -468,4 +467,5 @@ public class MainActivity extends BaseActivity {
         myOnEncoderListener = null;
         super.onDestroy();
     }
+
 }

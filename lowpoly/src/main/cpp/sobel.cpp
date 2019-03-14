@@ -6,18 +6,12 @@
 
 #include <iostream>
 #include <math.h>
-#include "android/log.h"
 #include <vector>
 #include <stdlib.h>
 
 using std::cout;
 using std::endl;
 using std::vector;
-using namespace std;
-
-
-#define TAG "icv_jni" // 这个是自定义的LOG的标识
-#define LOGI(...) __android_log_print(ANDROID_LOG_INFO,TAG ,__VA_ARGS__) // 定义LOGI类型
 
 
 #ifdef __cplusplus
