@@ -1,11 +1,13 @@
 PlayPicdio
 -----
 简书：
+</br>
 https://www.jianshu.com/p/a14f1ac558e1
 </br>
 csdn：
+</br>
 https://blog.csdn.net/u010308894/article/details/82689023
------
+
 简介
 -----
 android平台下 视频转ascii码视频、图片转ascii码图片、图片转低多边形风格图片、图片emoji-masaic化
