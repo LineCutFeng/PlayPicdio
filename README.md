@@ -11,15 +11,16 @@ android平台下 视频转ascii码视频、图片转ascii码图片、图片转�
 
 ascii码效果图
 -----
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/step.jpg" width=200 height=340/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/zhuangbi.jpg" width=200 height=340/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/beach.jpg" width=200 height=340/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii1.jpg" width=200 height=340/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii2.jpg" width=200 height=340/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii3.jpg" width=200 height=340/>
 
 低多边形效果图
 -----
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/1.png" width=300 height=500/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/girl_lowpoly.png" width=300 height=500/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly1.png" width=300 height=500/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly2.png" width=300 height=500/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly3.png" width=300 height=500/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly4.png" width=300 height=500/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly5.png" width=300 height=500/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly6.png" width=300 height=500/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly7.png" width=300 height=500/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly8.png" width=300 height=500/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly9.png" width=300 height=500/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly10.png" width=300 height=500/>
 
 emoji-masic效果图
 -----
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/miku.png" width=300 height=500/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/kubaki.png" width=300 height=500/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji1.png" width=300 height=500/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji2.png" width=300 height=500/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji3.png" width=300 height=500/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji4.png" width=300 height=500/>
 
 ascii码视频
 -----
