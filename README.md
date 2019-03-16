@@ -43,7 +43,7 @@ ascii码效果图
 
 emoji-masic效果图
 -----
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji1.png" width=300 height=500/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji2.png" width=300 height=500/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji3.png" width=300 height=500/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji4.png" width=300 height=500/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji1.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji2.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji3.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji4.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji5.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji6.png" width=200 height=340/>
 
 ascii码视频
 -----
