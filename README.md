@@ -11,19 +11,19 @@ android平台下 视频转ascii码视频、图片转ascii码图片、图片转�
 
 ascii码效果图
 -----
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/step.jpg" width=300/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/zhuangbi.jpg" width=300/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/beach.jpg" width=300/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/step.jpg" width=300 height=500/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/zhuangbi.jpg" width=300 height=500/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/beach.jpg" width=300 height=500/>
 
 低多边形效果图
 -----
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/me.png" width=300/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/girl_lowpoly.png" width=300/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/1.png" width=300 height=500/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/girl_lowpoly.png" width=300 height=500/>
 
 emoji-masic效果图
 -----
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/miku.png" width=300/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/kubaki.png" width=300/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/miku.png" width=300 height=500/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/kubaki.png" width=300 height=500/>
 
 ascii码视频
 -----
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/fzk.gif" width=300/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/fzk.gif" width=300 height=500/>
 
 LICENSE
 =======
