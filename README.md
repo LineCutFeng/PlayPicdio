@@ -11,7 +11,7 @@ android平台下 视频转ascii码视频、图片转ascii码图片、图片转�
 
 ascii码效果图
 -----
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/step.jpg" width=300 height=500/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/zhuangbi.jpg" width=300 height=500/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/beach.jpg" width=300 height=500/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/step.jpg" width=200 height=340/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/zhuangbi.jpg" width=200 height=340/><img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/beach.jpg" width=200 height=340/>
 
 低多边形效果图
 -----
