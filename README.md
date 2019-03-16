@@ -13,6 +13,24 @@ https://blog.csdn.net/u010308894/article/details/82689023
 android平台下 视频转ascii码视频、图片转ascii码图片、图片转低多边形风格图片、图片emoji-masaic化
 （未来功能，图片转彩色ascii码图片、图片添加新海诚风格滤镜、图片人工智能风格迁移世界名画、人脸替换融合）
 
+技术框架
+-----
+- 像素彩色转灰度
+- ndk sobel特征提取
+- delaunay三角形匹配
+- 泊松分布随机采样
+- ffmpeg图片合成视频
+
+功能
+----
+ascii
+- 图片转ascii码图片
+- 视频转ascii码图片
+低多边形化
+- 图片转低多边形
+emoji-mosaic
+- emoji表情替换图片像素
+
 ascii码效果图
 -----
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii1.jpg" width=200 height=340/>&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii2.jpg" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii3.jpg" width=200 height=340/>
