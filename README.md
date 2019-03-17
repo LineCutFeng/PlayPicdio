@@ -18,7 +18,7 @@ android平台下 视频转ascii码视频、图片转ascii码图片、图片转�
 - 像素彩色转灰度
 - ndk sobel特征提取
 - delaunay三角形匹配
-- 泊松分布随机采样
+- 泊松分布随机采样,4叉数优化
 - ffmpeg图片合成视频
 
 功能
