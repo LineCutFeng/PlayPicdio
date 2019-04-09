@@ -13,6 +13,9 @@ https://blog.csdn.net/u010308894/article/details/82689023
 android平台下 视频转ascii码视频、图片转ascii码图片、图片转低多边形风格图片、图片emoji-masaic化
 （未来功能，图片转彩色ascii码图片、图片添加新海诚风格滤镜、图片人工智能风格迁移世界名画、人脸替换融合）
 
+[![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
+[![Badge](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu/#/zh_CN)
+
 技术框架
 -----
 - 像素彩色转灰度
