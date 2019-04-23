@@ -54,8 +54,10 @@ ascii码视频
 
 
 # 🎓 License/许可
-=======
-[Anti-996 License](LICENSE)
+
+---
+
+[Anti-996 License](https://github.com/996icu/996.ICU/blob/master/LICENSE)
 
 
  - The purpose of this license is to prevent anti-labour-law companies from using the software or codes under the license, and force those companies to weigh their way of working
