@@ -58,6 +58,7 @@ License
 ---
 
 [Anti-996 License](LICENSE)
+# 🎓 License/许可
 
  - The purpose of this license is to prevent anti-labour-law companies from using the software or codes under the license, and force those companies to weigh their way of working
  - See a [full list of projects](awesomelist/projects.md) under Anti-996 License
