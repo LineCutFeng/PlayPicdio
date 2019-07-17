@@ -13,12 +13,15 @@ https://blog.csdn.net/u010308894/article/details/82689023
 android平台下 视频转ascii码视频、图片转ascii码图片、图片转低多边形风格图片、图片emoji-masaic化
 （未来功能，图片转彩色ascii码图片、图片添加新海诚风格滤镜、图片人工智能风格迁移世界名画、人脸替换融合）
 
+[![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
+[![Badge](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu/#/zh_CN)
+
 技术框架
 -----
 - 像素彩色转灰度
 - ndk sobel特征提取
 - delaunay三角形匹配
-- 泊松分布随机采样
+- 泊松分布随机采样,4叉数优化
 - ffmpeg图片合成视频
 
 功能
@@ -49,19 +52,17 @@ ascii码视频
 -----
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/fzk.gif" width=300 height=500/>
 
-LICENSE
-=======
-    
-    Copyright 2018 kangdongpu
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
+# 🎓 License/许可
 
-       http://www.apache.org/licenses/LICENSE-2.0
+[Anti-996 License](LICENSE)
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+
+ - The purpose of this license is to prevent anti-labour-law companies from using the software or codes under the license, and force those companies to weigh their way of working
+ - See a [full list of projects](awesomelist/projects.md) under Anti-996 License
+ - It is an idea of @xushunke: [Design A Software License Of Labor Protection -- Anti 996 License](https://github.com/996icu/996.ICU/pull/15642)
+ - This version of Anti-996 License is drafted by [Katt Gu, J.D, University of Illinois, College of Law](https://scholar.google.com.sg/citations?user=PTcpQwcAAAAJ&hl=en&oi=ao); advised by [Suji Yan](https://www.linkedin.com/in/tedkoyan/), CEO of [Dimension](https://www.dimension.im).  
+ - This draft is adapted from the MIT license. For more detailed explanation, please see [Wiki](https://github.com/kattgu7/996-License-Draft/wiki). This license is designed to be compatible with all major open source licenses.  
+ - For law professionals or anyone who is willing to contribute to future version directly, please go to [Anti-996-License-1.0](https://github.com/kattgu7/996-License-Draft). Thank you.
+
+
