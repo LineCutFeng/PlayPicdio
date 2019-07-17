@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 27
@@ -51,4 +53,8 @@ dependencies {
     debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
     implementation project(':lowpoly')
     implementation project(':emojimosaic')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
