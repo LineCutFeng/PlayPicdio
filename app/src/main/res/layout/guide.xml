@@ -14,7 +14,7 @@
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/bt_bg_1"
+            android:background="@drawable/bt_bg_4"
             android:text="图片视频转ascii码"
             android:textSize="22sp" />
 
@@ -24,7 +24,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:background="@drawable/bt_bg_2"
+            android:background="@drawable/bt_bg_4"
             android:text="图片低多边形化"
             android:textSize="22sp" />
 
@@ -44,8 +44,8 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:background="@drawable/bt_bg_3"
-            android:text="人工智能风格迁移"
+            android:background="@drawable/bt_bg_4"
+            android:text="底片效果"
             android:textSize="22sp" />
 
         <Button
@@ -55,6 +55,65 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:background="@drawable/bt_bg_4"
+            android:text="熔铸效果"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/bt_6"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bt_bg_4"
+            android:text="冰冻效果"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/bt_7"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bt_bg_4"
+            android:text="连环画效果"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/bt_8"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bt_bg_4"
+            android:text="褐色效果"
+            android:textSize="22sp" />
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bt_bg_4"
+            android:text="幻影坦克"
+            android:textSize="22sp" />
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bt_bg_4"
+            android:onClick="wati"
+            android:text="人工智能风格迁移"
+            android:textSize="22sp" />
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bt_bg_4"
+            android:onClick="wati"
             android:text="二次元新海诚滤镜"
             android:textSize="22sp" />
     </LinearLayout>

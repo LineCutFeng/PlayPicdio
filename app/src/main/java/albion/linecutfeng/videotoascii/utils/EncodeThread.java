@@ -12,7 +12,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 
-import albion.linecutfeng.videotoascii.activity.MainActivity;
+import albion.linecutfeng.videotoascii.activity.AsciiActivity;
 import albion.linecutfeng.videotoascii.app.AppConfig;
 
 public class EncodeThread extends Thread {
@@ -27,11 +27,11 @@ public class EncodeThread extends Thread {
     private Bitmap bitmapTemp;
     WeakReference<Context> weakReference;
 
-    public EncodeThread(String path, int fps, OnEncoderListener onEncoderListener, MainActivity mainActivity) {
+    public EncodeThread(String path, int fps, OnEncoderListener onEncoderListener, AsciiActivity asciiActivity) {
         this.fps = fps;
         this.path = path;
         this.onEncoderListener = onEncoderListener;
-        weakReference = new WeakReference(mainActivity);
+        weakReference = new WeakReference(asciiActivity);
     }
 
     @Override

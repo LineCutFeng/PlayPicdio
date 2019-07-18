@@ -4,58 +4,70 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import albion.linecutfeng.videotoascii.R;
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class GuideActivity extends BaseActivity {
-
-    @BindView(R.id.bt_1)
-    Button bt1;
-    @BindView(R.id.bt_2)
-    Button bt2;
-    @BindView(R.id.bt_3)
-    Button bt3;
-    @BindView(R.id.bt_4)
-    Button bt4;
-    @BindView(R.id.bt_5)
-    Button bt5;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.guide);
         ButterKnife.bind(this);
-
     }
 
-    @OnClick({R.id.bt_1, R.id.bt_2, R.id.bt_3, R.id.bt_4})
+    @OnClick({R.id.bt_1, R.id.bt_2, R.id.bt_3, R.id.bt_4, R.id.bt_5, R.id.bt_6, R.id.bt_7, R.id.bt_8})
     public void onViewClicked(View view) {
+        Intent intent = null;
         switch (view.getId()) {
             case R.id.bt_1:
-                startActivity(new Intent(this, MainActivity.class));
+                intent = new Intent(this, AsciiActivity.class);
+                startActivity(intent);
                 break;
             case R.id.bt_2:
-                startActivity(new Intent(this, LowPolyActivity.class));
+                intent = new Intent(this, SingleProcessActivity.class);
+                intent.putExtra("type", "lowpoly");
+                startActivity(intent);
                 break;
             case R.id.bt_3:
-                startActivity(new Intent(this, EmojiMosaicActivity.class));
+                intent = new Intent(this, SingleProcessActivity.class);
+                intent.putExtra("type", "emoji");
+                startActivity(intent);
                 break;
             case R.id.bt_4:
-                Toast.makeText(this, "敬请期待~", Toast.LENGTH_SHORT).show();
+                intent = new Intent(this, SingleProcessActivity.class);
+                intent.putExtra("type", "negative");
+                startActivity(intent);
                 break;
             case R.id.bt_5:
-                Toast.makeText(this, "敬请期待~", Toast.LENGTH_SHORT).show();
+                intent = new Intent(this, SingleProcessActivity.class);
+                intent.putExtra("type", "casting");
+                startActivity(intent);
+                break;
+            case R.id.bt_6:
+                intent = new Intent(this, SingleProcessActivity.class);
+                intent.putExtra("type", "frozen");
+                startActivity(intent);
+                break;
+
+            case R.id.bt_7:
+                intent = new Intent(this, SingleProcessActivity.class);
+                intent.putExtra("type", "comicbook");
+                startActivity(intent);
+                break;
+
+            case R.id.bt_8:
+                intent = new Intent(this, SingleProcessActivity.class);
+                intent.putExtra("type", "brown");
+                startActivity(intent);
                 break;
         }
     }
 
-    public static void main(String[] args) {
-        double i = ((short) (0x77) | 0x42 << 8) / 32768.0 * 180;
-        System.out.println(i);
+    public void wati(View view) {
+        Toast.makeText(this, "敬请期待~", Toast.LENGTH_SHORT).show();
     }
 }

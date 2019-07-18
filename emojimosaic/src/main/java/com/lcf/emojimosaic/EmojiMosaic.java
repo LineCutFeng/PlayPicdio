@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.lcf.emojimosaic.quadtree.Point;
@@ -15,15 +16,14 @@ import com.lcf.emojimosaic.quadtree.QuadTree;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 /**
- * Created by zhou on 16-5-11.
+ * Created by feng on 16-5-11.
  * <p/>
- * LowPoly图片生成器
+ * EmojiMosaic图片生成器
  */
 public final class EmojiMosaic {
 
@@ -51,27 +51,24 @@ public final class EmojiMosaic {
         System.out.println("颜色转化完成");
     }
 
-    public Bitmap generate(Context context, InputStream inputStream, OutputStream outputStream) throws IOException {
-        return generate(context, inputStream, outputStream, 100, true, Bitmap.CompressFormat.PNG, 100, true);
+    public Bitmap generate(Context context, String inputPath) throws IOException {
+        return generate(context, inputPath, 100, true, true);
     }
 
     /**
-     * 生成low poly风格的图片
+     * 生成emoji-mosaic风格的图片
      *
-     * @param inputStream  源图片
-     * @param outputStream 输出图片流
+     * @param inputPath    源图片
      * @param fill         是否填充颜色，为false时只绘制线条
-     * @param format       输出图片格
-     * @param quality      图片质量
      * @param antiAliasing 是否抗锯齿
      * @throws IOException
      */
-    public Bitmap generate(Context context, InputStream inputStream, OutputStream outputStream, float rowCount, boolean fill, Bitmap.CompressFormat format, int quality, boolean antiAliasing) throws IOException {
+    public Bitmap generate(Context context, String inputPath, float rowCount, boolean fill, boolean antiAliasing) throws IOException {
         try {
-            if (inputStream == null) {
+            if (TextUtils.isEmpty(inputPath)) {
                 return null;
             }
-            Bitmap image = BitmapFactory.decodeStream(inputStream);
+            Bitmap image = BitmapFactory.decodeFile(inputPath);
             int width = image.getWidth();
             int height = image.getHeight();
 
@@ -129,12 +126,7 @@ public final class EmojiMosaic {
 //            canvas.restore();
 //        }
             Log.i("icv", "绘制完成");
-            if (outputStream == null) {
-                return out;
-            } else {
-                out.compress(format, quality, outputStream);
-                return out;
-            }
+            return out;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

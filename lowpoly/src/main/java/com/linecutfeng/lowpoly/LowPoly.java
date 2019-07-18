@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.text.TextUtils;
 import android.util.Log;
 
 import java.io.IOException;
@@ -19,15 +20,14 @@ import java.util.List;
  * LowPoly图片生成器
  */
 public final class LowPoly {
-    public static Bitmap generate(InputStream inputStream, OutputStream outputStream) throws IOException {
-        return generate(inputStream, outputStream, 50, 1, true, Bitmap.CompressFormat.PNG, 100, false);
+    public static Bitmap generate(String inputFile) throws IOException {
+        return generate(inputFile, 50, 1, true, Bitmap.CompressFormat.PNG, 100, false);
     }
 
     /**
      * 生成low poly风格的图片
      *
-     * @param inputStream  源图片
-     * @param outputStream 输出图片流
+     * @param inputFile    源图片
      * @param accuracy     精度值，越小精度越高
      * @param scale        缩放，源图片和目标图片的尺寸比例
      * @param fill         是否填充颜色，为false时只绘制线条
@@ -36,11 +36,11 @@ public final class LowPoly {
      * @param antiAliasing 是否抗锯齿
      * @throws IOException
      */
-    public static Bitmap generate(InputStream inputStream, OutputStream outputStream, int accuracy, float scale, boolean fill, Bitmap.CompressFormat format, int quality, boolean antiAliasing) throws IOException {
-        if (inputStream == null) {
+    public static Bitmap generate(String inputFile, int accuracy, float scale, boolean fill, Bitmap.CompressFormat format, int quality, boolean antiAliasing) throws IOException {
+        if (TextUtils.isEmpty(inputFile)) {
             return null;
         }
-        Bitmap image = BitmapFactory.decodeStream(inputStream);
+        Bitmap image = BitmapFactory.decodeFile(inputFile);
         int width = image.getWidth();
         int height = image.getHeight();
 
@@ -50,7 +50,7 @@ public final class LowPoly {
         int[] pixels = new int[width * height];
         Log.i("icv", "数组大小为：" + pixels.length);
         image.getPixels(pixels, 0, width, 0, 0, width, height);
-        Sobel.sobelFromNative(pixels,width,height,collectors);
+        Sobel.sobelFromNative(pixels, width, height, collectors);
 //        Sobel.sobel(image, new Sobel.SobelCallback() {
 //            @Override
 //            public void call(int magnitude, int x, int y) {
@@ -114,12 +114,6 @@ public final class LowPoly {
             canvas.drawPath(path, paint);
         }
         Log.i("icv", "绘制完成");
-
-        if (outputStream == null) {
-            return out;
-        } else {
-            out.compress(format, quality, outputStream);
-            return out;
-        }
+        return out;
     }
 }

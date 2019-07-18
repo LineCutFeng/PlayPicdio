@@ -1,2 +1,2 @@
-include ':app', ':emojimosaic', ':phantomtank1'
+include ':app', ':emojimosaic', ':phantomtank1', ':phantomtank', ':simpleprocess'
 include ':lowpoly'
