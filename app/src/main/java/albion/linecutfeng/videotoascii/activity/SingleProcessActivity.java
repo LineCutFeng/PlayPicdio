@@ -319,7 +319,8 @@ public class SingleProcessActivity extends BaseActivity implements SimpleProcess
     @ProcessFunction
     @Override
     public Bitmap brown(Context context, String outputPath) {
-        return SimpleProcess.brown(oldPicPath);
+//        return SimpleProcess.brown(oldPicPath);
+        return SimpleProcess.tileRefectRGB(oldPicPath);
     }
 
 }
