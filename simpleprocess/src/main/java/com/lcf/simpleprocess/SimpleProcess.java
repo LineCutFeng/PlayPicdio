@@ -139,7 +139,7 @@ public class SimpleProcess {
     }
 
 
-    public static Bitmap tileRefectRGB(String inputPath/*, int nAngle, int nCount, int nSquareSize*/) {
+    public static Bitmap tilerefectrgb(String inputPath/*, int nAngle, int nCount, int nSquareSize*/) {
         try {
             Bitmap bitmap = BitmapFactory.decodeFile(inputPath);
             if (bitmap == null) return null;
@@ -147,7 +147,7 @@ public class SimpleProcess {
             int[] pixels = new int[bitmap.getWidth() * bitmap.getHeight()];
             int[] pOutput = pixels.clone();
             bitmap.getPixels(pixels, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
-            TileRefectHelper tileRefectHelper = new TileRefectHelper(bitmap.getWidth(), bitmap.getHeight(), 20, 4, 17, 30);
+            TileRefectHelper tileRefectHelper = new TileRefectHelper(bitmap.getWidth(), bitmap.getHeight(), bitmap.getWidth() / 20, 3, 17, 45);
             for (int i = 0; i < pOutput.length; i++) {
                 pOutput[i] = tileRefectHelper.tileRefectOnePixel(pixels, i % bitmap.getWidth(), i / bitmap.getWidth());
             }

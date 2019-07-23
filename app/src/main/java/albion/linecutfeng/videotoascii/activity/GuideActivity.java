@@ -19,7 +19,7 @@ public class GuideActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.bt_1, R.id.bt_2, R.id.bt_3, R.id.bt_4, R.id.bt_5, R.id.bt_6, R.id.bt_7, R.id.bt_8})
+    @OnClick({R.id.bt_1, R.id.bt_2, R.id.bt_3, R.id.bt_4, R.id.bt_5, R.id.bt_6, R.id.bt_7, R.id.bt_8,R.id.bt_9})
     public void onViewClicked(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -62,6 +62,11 @@ public class GuideActivity extends BaseActivity {
             case R.id.bt_8:
                 intent = new Intent(this, SingleProcessActivity.class);
                 intent.putExtra("type", "brown");
+                startActivity(intent);
+                break;
+            case R.id.bt_9:
+                intent = new Intent(this, SingleProcessActivity.class);
+                intent.putExtra("type", "tilerefectrgb");
                 startActivity(intent);
                 break;
         }

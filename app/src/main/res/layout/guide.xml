@@ -87,6 +87,15 @@
             android:background="@drawable/bt_bg_4"
             android:text="褐色效果"
             android:textSize="22sp" />
+        <Button
+            android:id="@+id/bt_9"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bt_bg_4"
+            android:text="瓷砖效果"
+            android:textSize="22sp" />
 
         <Button
             android:layout_width="250dp"
@@ -116,5 +125,6 @@
             android:onClick="wati"
             android:text="二次元新海诚滤镜"
             android:textSize="22sp" />
+
     </LinearLayout>
 </RelativeLayout>
