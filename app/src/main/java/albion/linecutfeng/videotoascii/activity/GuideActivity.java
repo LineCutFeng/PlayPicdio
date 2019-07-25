@@ -6,7 +6,10 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Toast;
 
+import java.io.FileNotFoundException;
+
 import albion.linecutfeng.videotoascii.R;
+import albion.linecutfeng.videotoascii.utils.CommonUtil;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -17,9 +20,14 @@ public class GuideActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.guide);
         ButterKnife.bind(this);
+        try {
+            CommonUtil.createAsciiByDrawText();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
-    @OnClick({R.id.bt_1, R.id.bt_2, R.id.bt_3, R.id.bt_4, R.id.bt_5, R.id.bt_6, R.id.bt_7, R.id.bt_8,R.id.bt_9})
+    @OnClick({R.id.bt_1, R.id.bt_2, R.id.bt_3, R.id.bt_4, R.id.bt_5, R.id.bt_6, R.id.bt_7, R.id.bt_8, R.id.bt_9})
     public void onViewClicked(View view) {
         Intent intent = null;
         switch (view.getId()) {

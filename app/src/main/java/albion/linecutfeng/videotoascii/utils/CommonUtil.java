@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.media.ExifInterface;
 import android.os.Environment;
@@ -15,11 +16,7 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.luck.picture.lib.PictureSelector;
@@ -27,6 +24,7 @@ import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -205,32 +203,62 @@ public class CommonUtil {
 //        return image;
     }
 
-    public static Bitmap creatCodeBitmap(StringBuilder contents, Context context) {
-//        contents = new StringBuilder().append("")
-        float scale = context.getResources().getDisplayMetrics().scaledDensity;
-
-        TextView tv = new TextView(context);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        tv.setLayoutParams(layoutParams);
-        tv.setText(contents);
-        tv.setTextSize(scale * 2);
-        tv.setTypeface(Typeface.MONOSPACE);
-        tv.setGravity(Gravity.CENTER_HORIZONTAL);
-        tv.setDrawingCacheEnabled(true);
-        tv.setTextColor(Color.GRAY);
-        tv.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
-                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
-        tv.layout(0, 0, tv.getMeasuredWidth(), tv.getMeasuredHeight());
-
-
-        tv.setBackgroundColor(Color.WHITE);
-
-        tv.buildDrawingCache();
-        Bitmap bitmapCode = tv.getDrawingCache();
-        return bitmapCode;
+    public static void createAsciiByDrawText() throws FileNotFoundException {
+        final String base = "我确信张大仙是个妖怪-徐梦圆";// 随机字符串
+        for (int i = 0; i < base.length(); i++) {
+            Paint paint = new Paint();
+            paint.setStyle(Paint.Style.FILL);
+            paint.setColor(Color.BLACK);
+            paint.setStrokeWidth(1);
+            paint.setTextAlign(Paint.Align.CENTER);
+            paint.setTextSize(14);
+            Paint.FontMetrics fontMetrics = paint.getFontMetrics();
+            float width = paint.measureText(base.charAt(i) + "");
+            Bitmap bitmap = Bitmap.createBitmap(((int) width), ((int) (fontMetrics.bottom - fontMetrics.top)), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(bitmap);
+            canvas.drawColor(Color.WHITE);
+            float distance = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom;
+            canvas.drawText(base.charAt(i) + "", 0, 1, bitmap.getWidth() / 2, bitmap.getHeight() / 2 + distance, paint);
+            int[] pixels = new int[bitmap.getWidth() * bitmap.getHeight()];
+            bitmap.getPixels(pixels, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
+            float gray = 0;
+            for (int pixel : pixels) {
+                if (pixel != -1) {
+                    gray += (0.299f * Color.red(pixel) + 0.578f * Color.green(pixel) + 0.114f * Color.blue(pixel));
+                }
+            }
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, new FileOutputStream(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + base.charAt(i) + ".png"));
+//            bitmap.recycle();
+            Log.i("icv", gray * 1f / pixels.length + "");
+        }
     }
+
+//    public static Bitmap creatCodeBitmap(StringBuilder contents, Context context) {
+////        contents = new StringBuilder().append("")
+//        float scale = context.getResources().getDisplayMetrics().scaledDensity;
+//
+//        TextView tv = new TextView(context);
+//        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+//                LinearLayout.LayoutParams.MATCH_PARENT,
+//                LinearLayout.LayoutParams.WRAP_CONTENT);
+//        tv.setLayoutParams(layoutParams);
+//        tv.setText(contents);
+//        tv.setTextSize(scale * 2);
+//        tv.setTypeface(Typeface.MONOSPACE);
+//        tv.setGravity(Gravity.CENTER_HORIZONTAL);
+//        tv.setDrawingCacheEnabled(true);
+//        tv.setTextColor(Color.GRAY);
+//        tv.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
+//                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+//        tv.layout(0, 0, tv.getMeasuredWidth(), tv.getMeasuredHeight());
+//
+//
+//        tv.setBackgroundColor(Color.WHITE);
+//
+//        tv.buildDrawingCache();
+//        Bitmap bitmapCode = tv.getDrawingCache();
+//        return bitmapCode;
+//    }
 
     public static Bitmap textAsBitmap(StringBuilder text, Context context) {
 
