@@ -2,10 +2,14 @@ package com.lcf.simpleprocess;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.PointF;
 
 import com.lcf.simpleprocess.util.ValueUtils;
+
+import java.util.Random;
 
 public class SimpleProcess {
 
@@ -228,6 +232,53 @@ public class SimpleProcess {
             b = (ValueUtils.FClamp(((float) b) / aasamples, 0f, 255f)).intValue();
             return Color.argb(a, r, g, b);
         }
+    }
+
+    public static Bitmap circleLine(String inputPath) {
+        try {
+            Bitmap bitmap = BitmapFactory.decodeFile(inputPath);
+            if (bitmap == null) return null;
+            int[] srcPixels = new int[bitmap.getWidth() * bitmap.getHeight()];
+            bitmap.getPixels(srcPixels, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
+            Bitmap outPut = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(outPut);
+            Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+            paint.setStrokeCap(Paint.Cap.ROUND);
+            paint.setStyle(Paint.Style.FILL);
+            paint.setColor(Color.BLACK);
+            paint.setStrokeWidth(3);
+            int centerX = outPut.getWidth() / 2;
+            int centerY = outPut.getHeight() / 2;
+            canvas.drawColor(Color.WHITE);
+            canvas.drawPoint(centerX, centerY, paint);
+            paint.setStrokeWidth(3);
+            paint.setStyle(Paint.Style.STROKE);
+            float r = 6;
+            while (r <= Math.sqrt(outPut.getWidth() * outPut.getWidth() + outPut.getHeight() * outPut.getHeight())) {
+                float random1 = 2 * new Random().nextFloat() + 2;
+                paint.setStrokeWidth(random1);
+                canvas.drawCircle(centerX, centerY, r, paint);
+                r += (3 + random1 / 2 + 2 * new Random().nextFloat());
+            }
+            int[] pixels = new int[outPut.getWidth() * outPut.getHeight()];
+            outPut.getPixels(pixels, 0, outPut.getWidth(), 0, 0, outPut.getWidth(), outPut.getHeight());
+            for (int i = 0; i < pixels.length; i++) {
+                if (Color.red(pixels[i]) < 125) {
+                    pixels[i] = srcPixels[i];
+//                    int i1 = (int) (0.299f * Color.red(srcPixels[i]) + 0.578f * Color.green(srcPixels[i]) + 0.114f * Color.blue(srcPixels[i]));
+//                    pixels[i] = i1 > 125 ? Color.WHITE : Color.BLACK;
+                } else {
+                    pixels[i] = Color.WHITE;
+                }
+            }
+            outPut.setPixels(pixels, 0, outPut.getWidth(), 0, 0, outPut.getWidth(), outPut.getHeight());
+//            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER));
+//            canvas.drawBitmap(bitmap, new Matrix(), paint);
+            return outPut;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 

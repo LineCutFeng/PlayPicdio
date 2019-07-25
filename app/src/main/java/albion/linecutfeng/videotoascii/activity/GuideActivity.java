@@ -27,7 +27,7 @@ public class GuideActivity extends BaseActivity {
         }
     }
 
-    @OnClick({R.id.bt_1, R.id.bt_2, R.id.bt_3, R.id.bt_4, R.id.bt_5, R.id.bt_6, R.id.bt_7, R.id.bt_8, R.id.bt_9})
+    @OnClick({R.id.bt_1, R.id.bt_2, R.id.bt_3, R.id.bt_4, R.id.bt_5, R.id.bt_6, R.id.bt_7, R.id.bt_8, R.id.bt_9,R.id.bt_10})
     public void onViewClicked(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -75,6 +75,11 @@ public class GuideActivity extends BaseActivity {
             case R.id.bt_9:
                 intent = new Intent(this, SingleProcessActivity.class);
                 intent.putExtra("type", "tilerefectrgb");
+                startActivity(intent);
+                break;
+            case R.id.bt_10:
+                intent = new Intent(this, SingleProcessActivity.class);
+                intent.putExtra("type", "circleLine");
                 startActivity(intent);
                 break;
         }

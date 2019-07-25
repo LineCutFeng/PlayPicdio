@@ -34,6 +34,9 @@ public interface SimpleProcessInterface {
     @ProcessFunction
     Bitmap tilerefectrgb(Context context, String outputPath);
 
+    @ProcessFunction
+    Bitmap circleLine(Context context, String outputPath);
+
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
     public @interface ProcessFunction {

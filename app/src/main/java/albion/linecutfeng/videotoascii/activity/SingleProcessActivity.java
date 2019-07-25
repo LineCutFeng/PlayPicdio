@@ -328,4 +328,12 @@ public class SingleProcessActivity extends BaseActivity implements SimpleProcess
         return SimpleProcess.tilerefectrgb(oldPicPath);
     }
 
+    @ProcessFunction
+    @Override
+    public Bitmap circleLine(Context context, String outputPath) {
+        return SimpleProcess.circleLine(oldPicPath);
+    }
+
+
+
 }
