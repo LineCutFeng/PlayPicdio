@@ -255,18 +255,18 @@ public class SimpleProcess {
             paint.setStyle(Paint.Style.STROKE);
             float r = 6;
             while (r <= Math.sqrt(outPut.getWidth() * outPut.getWidth() + outPut.getHeight() * outPut.getHeight())) {
-                float random1 = 2 * new Random().nextFloat();
+                float random1 = 1+2 * new Random().nextFloat();
                 paint.setStrokeWidth(random1);
                 canvas.drawCircle(centerX, centerY, r, paint);
-                r += (1+ 2 * new Random().nextFloat());
+                r += (2+ 2 * new Random().nextFloat());
             }
             int[] pixels = new int[outPut.getWidth() * outPut.getHeight()];
             outPut.getPixels(pixels, 0, outPut.getWidth(), 0, 0, outPut.getWidth(), outPut.getHeight());
             for (int i = 0; i < pixels.length; i++) {
                 if (Color.red(pixels[i]) < 125) {
-//                    pixels[i] = srcPixels[i];
-                    int i1 = (int) (0.299f * Color.red(srcPixels[i]) + 0.578f * Color.green(srcPixels[i]) + 0.114f * Color.blue(srcPixels[i]));
-                    pixels[i] = Color.rgb(i1, i1, i1) /*> 125 ? Color.WHITE : Color.BLACK*/;
+                    pixels[i] = srcPixels[i];
+//                    int i1 = (int) (0.299f * Color.red(srcPixels[i]) + 0.578f * Color.green(srcPixels[i]) + 0.114f * Color.blue(srcPixels[i]));
+//                    pixels[i] = Color.rgb(i1, i1, i1) /*> 125 ? Color.WHITE : Color.BLACK*/;
                 } else {
                     pixels[i] = Color.WHITE;
                 }
