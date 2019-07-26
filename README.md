@@ -50,7 +50,7 @@ emoji-mosaic
 
 ascii码效果图
 -----
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii1.png" width=200 height=340/>&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii2.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii3.png" width=200 height=340/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii1.jpg" width=200 height=340/>&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii2.jpg" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii3.jpg" width=200 height=340/>
 
 低多边形效果图
 -----
