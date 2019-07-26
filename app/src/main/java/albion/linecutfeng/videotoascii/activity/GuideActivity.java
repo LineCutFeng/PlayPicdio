@@ -20,11 +20,11 @@ public class GuideActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.guide);
         ButterKnife.bind(this);
-        try {
-            CommonUtil.createAsciiByDrawText();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            CommonUtil.createAsciiByDrawText();
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @OnClick({R.id.bt_1, R.id.bt_2, R.id.bt_3, R.id.bt_4, R.id.bt_5, R.id.bt_6, R.id.bt_7, R.id.bt_8, R.id.bt_9,R.id.bt_10})

@@ -161,24 +161,22 @@ public class AsciiActivity extends BaseActivity {
     void convertPic(final String path) {
         if (fileType == FILE_TYPE.pic) {
             if (TextUtils.isEmpty(path)) return;
-            Bitmap bitmap = CommonUtil.createAsciiPic(path, AsciiActivity.this);
-            FileOutputStream fos = null;
-            try {
-                fos = new FileOutputStream(BASE_PATH + "/" + tvPath.getText().toString().trim());
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+//            Bitmap bitmap = CommonUtil.createAsciiPic(path, AsciiActivity.this);
+            Bitmap bitmap = CommonUtil.createAsciiByDrawText(path, AsciiActivity.this, aSwitch.isChecked());
+            String fileName = tvPath.getText().toString().trim();
+            fileName = fileName.substring(0, fileName.lastIndexOf(".")) + ".png";
+            try (FileOutputStream fos = new FileOutputStream(BASE_PATH + "/" + fileName)) {
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
                 fos.flush();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
-            } finally {
-                try {
-                    fos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-
+            if (bitmap == null)
+                return;
             ivShow.setImageBitmap(bitmap);
         } else if (fileType == FILE_TYPE.video) {
             final int[] intArray = getResources().getIntArray(R.array.fps_array);
@@ -205,7 +203,7 @@ public class AsciiActivity extends BaseActivity {
                             if (encodeTotalCount == 0) {
                                 return;
                             }
-                            new EncodeThread(mediaPath, fps, myOnEncoderListener, AsciiActivity.this).start();
+                            new EncodeThread(mediaPath, fps, myOnEncoderListener, AsciiActivity.this, aSwitch.isChecked()).start();
                             dialog.dismiss();
                         }
                     }).show();

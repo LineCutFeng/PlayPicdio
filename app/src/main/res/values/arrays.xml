@@ -8,8 +8,8 @@
     </integer-array>
 
     <string-array name="video_format">
-        <item>avi</item>
         <item>mp4</item>
         <item>gif</item>
     </string-array>
+    <!--<item>avi</item>-->
 </resources>

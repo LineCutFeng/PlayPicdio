@@ -24,12 +24,15 @@ import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.UUID;
 
 public class CommonUtil {
@@ -162,8 +165,8 @@ public class CommonUtil {
             }
             text.append("\n");
         }
-        return textAsBitmap(text, context);
-//        return image;
+//        return textAsBitmap(text, context);
+        return image;
     }
 
     public static Bitmap createAsciiPic(Bitmap image, Context context) {
@@ -199,38 +202,181 @@ public class CommonUtil {
             }
             text.append("\n");
         }
-        return textAsBitmap(text, context);
-//        return image;
+//        return textAsBitmap(text, context);
+        return image;
     }
 
-    public static void createAsciiByDrawText() throws FileNotFoundException {
-        final String base = "我确信张大仙是个妖怪-徐梦圆";// 随机字符串
-        for (int i = 0; i < base.length(); i++) {
+    public static Bitmap createAsciiByDrawText(final String path, Context context, boolean isColorful) {
+        try {
+            final String base = "一七刀九上工土开天月";// 随机字符串  当然如果你想更改成别的字符串也行，不过字符串的每个字最好涵盖各个复杂程度的字符
+//            final String base = "#8XOHLTI)i=+; :,.";// 随机字符串
+            float maxCharWidth = 0;
+            Map<Character, Integer> blackMap = new HashMap<>();
+//        final String base = "#8XOHLTI)i=+;:,.";// 随机字符串
             Paint paint = new Paint();
             paint.setStyle(Paint.Style.FILL);
             paint.setColor(Color.BLACK);
-            paint.setStrokeWidth(1);
+            paint.setStrokeWidth(0.1f);
             paint.setTextAlign(Paint.Align.CENTER);
             paint.setTextSize(14);
             Paint.FontMetrics fontMetrics = paint.getFontMetrics();
-            float width = paint.measureText(base.charAt(i) + "");
-            Bitmap bitmap = Bitmap.createBitmap(((int) width), ((int) (fontMetrics.bottom - fontMetrics.top)), Bitmap.Config.ARGB_8888);
-            Canvas canvas = new Canvas(bitmap);
-            canvas.drawColor(Color.WHITE);
             float distance = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom;
-            canvas.drawText(base.charAt(i) + "", 0, 1, bitmap.getWidth() / 2, bitmap.getHeight() / 2 + distance, paint);
-            int[] pixels = new int[bitmap.getWidth() * bitmap.getHeight()];
-            bitmap.getPixels(pixels, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
-            float gray = 0;
-            for (int pixel : pixels) {
-                if (pixel != -1) {
-                    gray += (0.299f * Color.red(pixel) + 0.578f * Color.green(pixel) + 0.114f * Color.blue(pixel));
+            for (int i = 0; i < base.length(); i++) {
+                float width = paint.measureText(base.charAt(i) + "");
+                Bitmap bitmap = Bitmap.createBitmap(((int) width), ((int) (fontMetrics.bottom - fontMetrics.top)), Bitmap.Config.ARGB_8888);
+                Canvas canvas = new Canvas(bitmap);
+                canvas.drawColor(Color.WHITE);
+                canvas.drawText(base.charAt(i) + "", 0, 1, bitmap.getWidth() / 2, bitmap.getHeight() / 2 + distance, paint);
+                int[] pixels = new int[bitmap.getWidth() * bitmap.getHeight()];
+                bitmap.getPixels(pixels, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
+                int gray = 0;
+                for (int pixel : pixels) {
+                    if (pixel != -1) {
+                        gray++;
+                    }
+                }
+                blackMap.put(base.charAt(i), gray);
+                int charWidth = bitmap.getWidth();
+                int charHeight = bitmap.getHeight();
+                if (maxCharWidth < Math.max(charWidth, charHeight)) {
+                    maxCharWidth = Math.max(charWidth, charHeight);
+                }
+                bitmap.recycle();
+            }
+//            maxCharWidth *= (5 / 6f);
+            Character[] characters = new Character[base.length()];
+            for (int i = 0; i < characters.length; i++) {
+                characters[i] = base.charAt(i);
+            }
+            Arrays.sort(characters, new Comparator<Character>() {
+                @Override
+                public int compare(Character o1, Character o2) {
+                    return blackMap.get(o2) - blackMap.get(o1);
+                }
+            });
+            Bitmap image = BitmapFactory.decodeFile(path);  //读取图片
+            int width1, height1;
+            int scale = 1;
+            WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+            DisplayMetrics dm = new DisplayMetrics();
+            wm.getDefaultDisplay().getMetrics(dm);
+            int width = dm.widthPixels;
+            int width0 = image.getWidth();
+            int height0 = image.getHeight();
+            width1 = width / scale;
+            height1 = width1 * height0 / width0;
+            image = scale(path, width1, height1);  //读取图片
+            Bitmap outImage = Bitmap.createBitmap(image.getWidth(), image.getHeight(), Bitmap.Config.ARGB_8888);
+            Log.i("icv", "width=" + image.getWidth() + " height=" + image.getHeight());
+            Canvas outCanvas = new Canvas(outImage);
+            outCanvas.drawColor(Color.WHITE);
+            for (int y = 0; y < image.getHeight(); y += maxCharWidth) {
+                for (int x = 0; x < image.getWidth(); x += maxCharWidth) {
+//                    Log.i("icv", "绘制x=" + (x + 6f) + " y=" + (y + 6));
+                    final int pixel = image.getPixel(x, y);
+                    final int r = (pixel & 0xff0000) >> 16, g = (pixel & 0xff00) >> 8, b = pixel & 0xff;
+                    final int gray = (int) (0.299f * r + 0.578f * g + 0.114f * b);
+                    final int index = Math.round(gray * (characters.length + 1) / 255);
+                    paint.setColor(Color.rgb(gray, gray, gray));
+                    outCanvas.drawText(index >= characters.length ? " " : String.valueOf(characters[index]), x + maxCharWidth / 2f, y + maxCharWidth / 2f + distance, paint);
                 }
             }
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, new FileOutputStream(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + base.charAt(i) + ".png"));
-//            bitmap.recycle();
-            Log.i("icv", gray * 1f / pixels.length + "");
+            if (isColorful) {
+                for (int y = 0; y < outImage.getHeight(); y++) {
+                    for (int x = 0; x < outImage.getWidth(); x++) {
+                        if (outImage.getPixel(x, y) != Color.WHITE) {
+                            outImage.setPixel(x, y, image.getPixel(x, y));
+                        }
+                    }
+                }
+            }
+            image.recycle();
+            return outImage;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return null;
+    }
+
+    public static Bitmap createAsciiByDrawText(Bitmap image, Context context, boolean isColorful) {
+        try {
+//            final String base = "一七刀九上工土开天月东正叶竹成师角";// 随机字符串  当然如果你想更改成别的字符串也行，不过字符串的每个字最好涵盖各个复杂程度的字符
+            final String base = "一七刀九上工土开天月";// 随机字符串  当然如果你想更改成别的字符串也行，不过字符串的每个字最好涵盖各个复杂程度的字符
+//            final String base = "#8XOHLTI)i=+; :,.";// 随机字符串
+            float maxCharWidth = 0;
+            Map<Character, Integer> blackMap = new HashMap<>();
+//        final String base = "#8XOHLTI)i=+;:,.";// 随机字符串
+            Paint paint = new Paint();
+            paint.setStyle(Paint.Style.FILL);
+            paint.setColor(Color.BLACK);
+            paint.setStrokeWidth(0.1f);
+            paint.setTextAlign(Paint.Align.CENTER);
+            paint.setTextSize(8);
+            Paint.FontMetrics fontMetrics = paint.getFontMetrics();
+            float distance = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom;
+            for (int i = 0; i < base.length(); i++) {
+                float width = paint.measureText(base.charAt(i) + "");
+                Bitmap bitmap = Bitmap.createBitmap(((int) width), ((int) (fontMetrics.bottom - fontMetrics.top)), Bitmap.Config.ARGB_8888);
+                Canvas canvas = new Canvas(bitmap);
+                canvas.drawColor(Color.WHITE);
+                canvas.drawText(base.charAt(i) + "", 0, 1, bitmap.getWidth() / 2, bitmap.getHeight() / 2 + distance, paint);
+                int[] pixels = new int[bitmap.getWidth() * bitmap.getHeight()];
+                bitmap.getPixels(pixels, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
+                int gray = 0;
+                for (int pixel : pixels) {
+                    if (pixel != -1) {
+                        gray++;
+                    }
+                }
+                blackMap.put(base.charAt(i), gray);
+                int charWidth = bitmap.getWidth();
+                int charHeight = bitmap.getHeight();
+                if (maxCharWidth < Math.max(charWidth, charHeight)) {
+                    maxCharWidth = Math.max(charWidth, charHeight);
+                }
+                bitmap.recycle();
+            }
+//            maxCharWidth *= (5 / 6f);
+            Character[] characters = new Character[base.length()];
+            for (int i = 0; i < characters.length; i++) {
+                characters[i] = base.charAt(i);
+            }
+            Arrays.sort(characters, new Comparator<Character>() {
+                @Override
+                public int compare(Character o1, Character o2) {
+                    return blackMap.get(o2) - blackMap.get(o1);
+                }
+            });
+            Bitmap outImage = Bitmap.createBitmap(image.getWidth(), image.getHeight(), Bitmap.Config.ARGB_8888);
+            Log.i("icv", "width=" + image.getWidth() + " height=" + image.getHeight());
+            Canvas outCanvas = new Canvas(outImage);
+            outCanvas.drawColor(Color.WHITE);
+            for (int y = 0; y < image.getHeight(); y += maxCharWidth) {
+                for (int x = 0; x < image.getWidth(); x += maxCharWidth) {
+//                    Log.i("icv", "绘制x=" + (x + 6f) + " y=" + (y + 6));
+                    final int pixel = image.getPixel(x, y);
+                    final int r = (pixel & 0xff0000) >> 16, g = (pixel & 0xff00) >> 8, b = pixel & 0xff;
+                    final int gray = (int) (0.299f * r + 0.578f * g + 0.114f * b);
+                    final int index = Math.round(gray * (characters.length + 1) / 255);
+                    paint.setColor(Color.rgb(gray, gray, gray));
+                    outCanvas.drawText(index >= characters.length ? " " : String.valueOf(characters[index]), x + maxCharWidth / 2f, y + maxCharWidth / 2f + distance, paint);
+                }
+            }
+            if (isColorful) {
+                for (int y = 0; y < outImage.getHeight(); y++) {
+                    for (int x = 0; x < outImage.getWidth(); x++) {
+                        if (outImage.getPixel(x, y) != Color.WHITE) {
+                            outImage.setPixel(x, y, image.getPixel(x, y));
+                        }
+                    }
+                }
+            }
+            image.recycle();
+            return outImage;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 //    public static Bitmap creatCodeBitmap(StringBuilder contents, Context context) {

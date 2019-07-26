@@ -26,12 +26,14 @@ public class EncodeThread extends Thread {
     MediaDecoder mediaDecoder;
     private Bitmap bitmapTemp;
     WeakReference<Context> weakReference;
+    boolean isColorful;
 
-    public EncodeThread(String path, int fps, OnEncoderListener onEncoderListener, AsciiActivity asciiActivity) {
+    public EncodeThread(String path, int fps, OnEncoderListener onEncoderListener, AsciiActivity asciiActivity, boolean isColorful) {
         this.fps = fps;
         this.path = path;
         this.onEncoderListener = onEncoderListener;
         weakReference = new WeakReference(asciiActivity);
+        this.isColorful = isColorful;
     }
 
     @Override
@@ -53,7 +55,7 @@ public class EncodeThread extends Thread {
             Log.i("icv", "第" + i + "张解码结束\n");
             Log.i("icv", "第" + i + "张转换开始\n");
             if (weakReference == null || weakReference.get() == null) return;
-            bitmapTemp = CommonUtil.createAsciiPic(bitmap, weakReference.get());
+            bitmapTemp = CommonUtil.createAsciiByDrawText(bitmap, weakReference.get(), isColorful);
             Log.i("icv", "第" + i + "张转换结束\n");
             Log.i("icv", "第" + i + "张编码结束----------------\n\n");
             FileOutputStream fos;
