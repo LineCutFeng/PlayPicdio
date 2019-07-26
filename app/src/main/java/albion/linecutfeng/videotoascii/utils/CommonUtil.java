@@ -218,7 +218,7 @@ public class CommonUtil {
             paint.setColor(Color.BLACK);
             paint.setStrokeWidth(0.1f);
             paint.setTextAlign(Paint.Align.CENTER);
-            paint.setTextSize(14);
+            paint.setTextSize(10);
             Paint.FontMetrics fontMetrics = paint.getFontMetrics();
             float distance = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom;
             for (int i = 0; i < base.length(); i++) {
@@ -265,7 +265,7 @@ public class CommonUtil {
             int height0 = image.getHeight();
             width1 = width / scale;
             height1 = width1 * height0 / width0;
-            image = scale(path, width1, height1);  //读取图片
+            image = scale(path, width1, height1);
             Bitmap outImage = Bitmap.createBitmap(image.getWidth(), image.getHeight(), Bitmap.Config.ARGB_8888);
             Log.i("icv", "width=" + image.getWidth() + " height=" + image.getHeight());
             Canvas outCanvas = new Canvas(outImage);
