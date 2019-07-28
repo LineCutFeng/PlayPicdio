@@ -1,18 +1,9 @@
 package albion.linecutfeng.videotoascii.utils;
 
 
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.MediaMetadataRetriever;
-import android.net.Uri;
 import android.util.Log;
-
-
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.nio.ByteBuffer;
 
 /**
  * 预览视频帧

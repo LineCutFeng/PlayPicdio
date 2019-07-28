@@ -1,5 +1,6 @@
 package albion.linecutfeng.videotoascii.utils;
 
+import android.text.TextUtils;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -32,24 +33,56 @@ public class ffmpegCommandCentre {
 //        return commands;
 //    }
 
+//    /**
+//     * 背景音乐
+//     */
+//    public static String[] addMusic(String musicUrl, String videoUrl, String outputUrl) {
+////        Log.d("LOGCAT","add music");
+//        String[] commands = new String[7];
+//        commands[0] = "ffmpeg";
+//        //输入
+//        commands[1] = "-i";
+//        commands[2] = videoUrl;
+//        //音乐
+//        commands[3] = "-i";
+//        commands[4] = musicUrl;
+//        //覆盖输出
+//        commands[5] = "-y";
+//        //输出文件
+//        commands[6] = outputUrl;
+//        return commands;
+//    }
+
     /**
-     * 背景音乐
+     * 使用ffmpeg命令行进行抽取音频
+     *
+     * @param srcFile    原文件
+     * @param targetFile 目标文件
+     * @return 抽取后的音频文件
      */
-    public static String[] addMusic(String musicUrl, String videoUrl, String outputUrl) {
-//        Log.d("LOGCAT","add music");
-        String[] commands = new String[7];
-        commands[0] = "ffmpeg";
-        //输入
-        commands[1] = "-i";
-        commands[2] = videoUrl;
-        //音乐
-        commands[3] = "-i";
-        commands[4] = musicUrl;
-        //覆盖输出
-        commands[5] = "-y";
-        //输出文件
-        commands[6] = outputUrl;
-        return commands;
+    public static String[] extractAudio(String srcFile, String targetFile) {
+        //-vn:video not
+        String mixAudioCmd = "ffmpeg -i %s -f wav %s";
+        mixAudioCmd = String.format(mixAudioCmd, srcFile, targetFile);
+        return mixAudioCmd.split(" ");//以空格分割为字符串数组
+    }
+
+    /**
+     * 使用ffmpeg命令行进行音视频合成
+     *
+     * @param videoFile 视频文件
+     * @param audioFile 音频文件
+     *                  //     * @param duration 视频时长
+     * @param muxFile   目标文件
+     * @return 合成后的文件
+     */
+    public static String[] mediaMux(String videoFile, String audioFile, String muxFile) {
+        //-t:时长  如果忽略音视频时长，则把"-t %d"去掉
+//        String mixAudioCmd = "ffmpeg -i %s -i %s -t %d %s";
+//        mixAudioCmd = String.format(mixAudioCmd, videoFile, audioFile, duration, muxFile);
+        String mixAudioCmd = "ffmpeg -i %s -i %s %s";
+        mixAudioCmd = String.format(mixAudioCmd, videoFile, audioFile, muxFile);
+        return mixAudioCmd.split(" ");//以空格分割为字符串数组
     }
 
     /**
@@ -80,7 +113,7 @@ public class ffmpegCommandCentre {
     /**
      * 拼接视频
      */
-    public static String[] concatVideo(String _filePath, String _outPath,String fps) {//-f concat -i list.txt -c copy concat.mp4
+    public static String[] concatVideo(String _filePath, String audioPath, String _outPath, String fps) {//-f concat -i list.txt -c copy concat.mp4
         ArrayList<String> _commands = new ArrayList<>();
 
         {
@@ -91,17 +124,30 @@ public class ffmpegCommandCentre {
             _commands.add("-framerate");
             _commands.add(fps);
             _commands.add("-i");
-            _commands.add(_filePath+"/test%05d.png");
+            _commands.add(_filePath + "/test%05d.png");
+            if (!TextUtils.isEmpty(audioPath)) {
+                _commands.add("-i");
+                _commands.add(audioPath);
+            }
 //            _commands.add("-filter_complex");
 //            _commands.add("[1:v]scale=1920:1080[s];[0:v][s]overlay=0:0");
-            _commands.add("-b");
-            _commands.add("1000k");
+//            –bf 0 –g 25
+//            _commands.add("-bf");
+//            _commands.add("0");
+//            _commands.add("-keyint_min");
+//            _commands.add("60");
+//            _commands.add("-sc_threshold");
+//            _commands.add("0");
+//            _commands.add("-g");
+//            _commands.add("-60");
+//            _commands.add("-b");
+//            _commands.add("500k");
 //            _commands.add("-s");
 //            _commands.add("640x360");
             _commands.add("-ss");
             _commands.add("0:00:00");
-            _commands.add("-r");
-            _commands.add("50");
+//            _commands.add("-r");
+//            _commands.add(fps);
             _commands.add(_outPath);
         }
 

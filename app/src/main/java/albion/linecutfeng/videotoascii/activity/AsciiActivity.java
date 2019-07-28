@@ -1,6 +1,5 @@
 package albion.linecutfeng.videotoascii.activity;
 
-import android.Manifest;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -23,7 +22,6 @@ import android.widget.Toast;
 
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.entity.LocalMedia;
-import com.luck.picture.lib.permissions.RxPermissions;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -39,14 +37,18 @@ import albion.linecutfeng.videotoascii.utils.EncodeThread;
 import albion.linecutfeng.videotoascii.utils.FileUtils;
 import albion.linecutfeng.videotoascii.utils.MediaDecoder;
 import albion.linecutfeng.videotoascii.utils.MediaFile;
-import albion.linecutfeng.videotoascii.utils.ThreadPoolUtils;
 import albion.linecutfeng.videotoascii.utils.ffmpegCommandCentre;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import codepig.ffmpegcldemo.FFmpegKit;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
+import static albion.linecutfeng.videotoascii.app.AppConfig.AUDIO_PATH;
 import static albion.linecutfeng.videotoascii.app.AppConfig.BASE_PATH;
 import static albion.linecutfeng.videotoascii.app.AppConfig.PIC_LIST_PATH;
 import static com.luck.picture.lib.config.PictureConfig.CHOOSE_REQUEST;
@@ -84,6 +86,7 @@ public class AsciiActivity extends BaseActivity {
 
     Handler mHander = new Handler(Looper.getMainLooper());
 
+
     enum FILE_TYPE {
         none, pic, video;
     }
@@ -93,38 +96,6 @@ public class AsciiActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        checkPermissionAndMakeFile();
-    }
-
-    private void checkPermissionAndMakeFile() {
-        new RxPermissions(this)
-                .request(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE})
-                .subscribe(new Consumer<Boolean>() {
-                    @Override
-                    public void accept(Boolean granted) throws Exception {
-                        if (granted) {
-                            File file = new File(PIC_LIST_PATH);
-                            if (!file.exists()) {
-                                file.mkdirs();
-                            } else if (file.isFile()) {
-                                file.mkdirs();
-                            } else {
-                                File[] files = file.listFiles();
-                                for (File file1 : files) {
-                                    file1.delete();
-                                }
-                            }
-                        } else {
-                            Toast.makeText(AsciiActivity.this, "未获取到SD卡读写权限，玩毛线", Toast.LENGTH_SHORT).show();
-                            mHander.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    finish();
-                                }
-                            }, 1500);
-                        }
-                    }
-                });
     }
 
     @OnClick({R.id.bt_select, R.id.bt_mix, R.id.bt_convert})
@@ -159,6 +130,9 @@ public class AsciiActivity extends BaseActivity {
      * @param path
      */
     void convertPic(final String path) {
+        //清空之前的图片音频
+        FileUtils.clearPath(new File(PIC_LIST_PATH));
+        FileUtils.clearPath(new File(AUDIO_PATH));
         if (fileType == FILE_TYPE.pic) {
             if (TextUtils.isEmpty(path)) return;
 //            Bitmap bitmap = CommonUtil.createAsciiPic(path, AsciiActivity.this);
@@ -239,46 +213,56 @@ public class AsciiActivity extends BaseActivity {
             Toast.makeText(this, "媒体格式不对，无法进行拼接", Toast.LENGTH_SHORT).show();
             return;
         }
+//        final String videoWithOutVoice = fileName.substring(0, i) + "_novoice." + format;
         final String videoName = fileName.substring(0, i) + "." + format;
-        String[] commands = ffmpegCommandCentre.concatVideo(PIC_LIST_PATH, BASE_PATH + "/" + videoName, fps + "");
-        final String[] _commands = commands;
-        Runnable compoundRun = new Runnable() {
-            @Override
-            public void run() {
-                FFmpegKit.execute(_commands, new FFmpegKit.KitInterface() {
-                    @Override
-                    public void onStart() {
-                        mHander.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                showProgress("正在合成视频，时长视fps大概为视频时长的2到3倍请稍后...");
-                            }
-                        });
-
-                        Log.d("FFmpegLog LOGCAT", "FFmpeg 命令行开始执行了...");
+        final String voiceName = AUDIO_PATH + "/" + "voice.wav";
+        final String[] extractAudioCommands = ffmpegCommandCentre.extractAudio(mediaPath, voiceName);
+        final String[] concatVideoCommands = ffmpegCommandCentre.concatVideo(PIC_LIST_PATH, format.equals("gif") ? null : voiceName, BASE_PATH + "/" + videoName, fps + "");
+//        final String[] mediaMuxCommands = ffmpegCommandCentre.mediaMux(BASE_PATH + "/" + videoWithOutVoice, AUDIO_PATH + "/" + "voice.wav", BASE_PATH + "/" + videoName);
+        Disposable subscribe = Observable
+                .just(concatVideoCommands)
+                .flatMap(strings -> {
+                    showProgress("正在提取音频，请稍后...");
+                    return Observable.just(1);
+                })
+                .observeOn(Schedulers.newThread())
+                .flatMap(strings -> {
+                    if (!format.equals("gif")) {
+                        FFmpegKit.execute(extractAudioCommands);
                     }
-
+                    return Observable.just(1);
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .flatMap(strings -> {
+                    showProgress("正在合成视频，时长视fps大概为视频时长的2到3倍请稍后...");
+                    return Observable.just(1);
+                })
+                .observeOn(Schedulers.newThread())
+                .flatMap(strings -> {
+                    FFmpegKit.execute(concatVideoCommands);
+                    return Observable.just(1);
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+//                .flatMap(strings -> {
+//                    showProgress("音视频正在合并，请稍后...");
+//                    return Observable.just(1);
+//                })
+//                .observeOn(Schedulers.newThread())
+//                .flatMap(strings -> {
+//                    FFmpegKit.execute(mediaMuxCommands);
+//                    return Observable.just(1);
+//                })
+//                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<Integer>() {
                     @Override
-                    public void onProgress(int progress) {
-                        Log.d("FFmpegLog LOGCAT", "done com" + "FFmpeg 命令行执行进度..." + progress);
+                    public void accept(Integer integer) throws Exception {
+                        dismissDialog();
+                        Toast.makeText(AsciiActivity.this, "合并完成，请进入目录" + "SD卡下/albion.linecutfeng.videotoascii/目录" + "查看", Toast.LENGTH_SHORT).show();
                     }
-
-                    @Override
-                    public void onEnd(int result) {
-                        mHander.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                dismissDialog();
-                                Toast.makeText(AsciiActivity.this, "合并完成，请进入目录" + "SD卡下/albion.linecutfeng.videotoascii/目录" + "查看", Toast.LENGTH_SHORT).show();
-//                                showOpenDialog(BASE_PATH + "/" + videoName);
-                            }
-                        });
-                        Log.d("FFmpegLog LOGCAT", "FFmpeg 命令行执行完成...");
-                    }
+                }, throwable -> {
+                    throwable.printStackTrace();
+                    Toast.makeText(this, "发生了一些错诶~", Toast.LENGTH_SHORT).show();
                 });
-            }
-        };
-        ThreadPoolUtils.execute(compoundRun);
     }
 
 //    /**
