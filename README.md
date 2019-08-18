@@ -69,16 +69,16 @@ ascii码效果图
 
 emoji-masic效果图
 -----
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji1.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji2.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji3.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji4.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji5.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji6.png" width=200 height=340/>
+<img src="http://m.qpic.cn/psb?/V12fRHz609Gs9p/A8UzAfDj.DSvexg1uk8*WrQs9FSf9e2OeETs2h5NSM4!/b/dDMBAAAAAAAA&bo=7gLoAwAAAAADd1U!&rf=viewer_4" width=200 height=340/>&nbsp;&nbsp;&nbsp;
+<img src="http://m.qpic.cn/psb?/V12fRHz609Gs9p/UkN7E4luuQjoeKoTqtlJEV2PXc45Gyjd4TXMLPPMRPU!/b/dMMAAAAAAAAA&bo=9AHuAvQB7gIDV3I!&rf=viewer_4" width=200 height=340/>&nbsp;&nbsp;&nbsp;
+<img src="http://m.qpic.cn/psb?/V12fRHz609Gs9p/2fy59povmlJ54qEQC**tRXZ*OJDKJFQZ5H5QvVJg*4E!/b/dDUBAAAAAAAA&bo=IAPZAyAD2QMDd1I!&rf=viewer_4" width=200 height=340/>&nbsp;&nbsp;&nbsp;
+<img src="http://r.photo.store.qq.com/psb?/V12fRHz609Gs9p/atQcXM1qtA9t2Yrum2ve07Pj6tclCdsV1zmUaqxPCSg!/r/dD4BAAAAAAAA" width=200 height=340/>&nbsp;&nbsp;&nbsp;
+<img src="http://m.qpic.cn/psb?/V12fRHz609Gs9p/ENylgrtonKLtoNRRztsGUyWkEM8UBFMA0QqaXVP2Npo!/b/dLgAAAAAAAAA&bo=kAJFBJACRQQDd1I!&rf=viewer_4" width=200 height=340/>&nbsp;&nbsp;&nbsp;
+<img src="http://m.qpic.cn/psb?/V12fRHz609Gs9p/nOmb2RkGrCjbttziZcO.3s8FBuw9E*2eoWZN5TJ.adE!/b/dFQBAAAAAAAA&bo=wAOgBcADoAUDh6I!&rf=viewer_4" width=200 height=340/>
 
 ascii码视频
 -----
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/fzk.gif" width=300 height=500/>
+<img src="http://m.qpic.cn/psb?/V12fRHz609Gs9p/JCNU0eyBGlVD8skOGUp0XiNQ4MPewRK8*TR.gr2Ys3I!/b/dDYBAAAAAAAA&bo=TASjB0wEowcCmb0!&rf=viewer_4" width=300 height=500/>
 
 
 # 🎓 License/许可
