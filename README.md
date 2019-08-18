@@ -59,7 +59,6 @@ ascii码效果图
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly3.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly4.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly6.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly7.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly8.png" width=200 height=340/>
 
 
