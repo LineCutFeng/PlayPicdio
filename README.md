@@ -50,7 +50,7 @@ emoji-mosaic
 
 ascii码效果图
 -----
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii1.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii1.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii2.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii3.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 
@@ -61,6 +61,9 @@ ascii码效果图
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly6.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly7.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 
+瓷砖效果图
+-----
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/tilerefect1.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 
 emoji-masic效果图
 -----
@@ -68,6 +71,10 @@ emoji-masic效果图
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji2.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji5.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji6.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
+
+光盘效果图
+-----
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/circleLine1.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 
 ascii码视频
 -----
