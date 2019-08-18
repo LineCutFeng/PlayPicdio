@@ -50,7 +50,7 @@ emoji-mosaic
 
 ascii码效果图
 -----
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii1.jpg" width=200 height=340/>&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii2.jpg" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii3.jpg" width=200 height=340/>
+<img src="http://b304.photo.store.qq.com/psb?/V12fRHz62OxZA5/i8nARdFo4IAx6TO1WeAujQezz6w*dG3dER7GSWMX1YQ!/b/dDABAAAAAAAA&bo=eQLoAwAAAAADF6I!&rf=viewer_4&t=5" width=200 height=340/>&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii2.jpg" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii3.jpg" width=200 height=340/>
 
 低多边形效果图
 -----
@@ -77,4 +77,6 @@ ascii码视频
  - This draft is adapted from the MIT license. For more detailed explanation, please see [Wiki](https://github.com/kattgu7/996-License-Draft/wiki). This license is designed to be compatible with all major open source licenses.  
  - For law professionals or anyone who is willing to contribute to future version directly, please go to [Anti-996-License-1.0](https://github.com/kattgu7/996-License-Draft). Thank you.
 
+http://b304.photo.store.qq.com/psb?/V12fRHz62OxZA5/i8nARdFo4IAx6TO1WeAujQezz6w*dG3dER7GSWMX1YQ!/b/dDABAAAAAAAA&bo=eQLoAwAAAAADF6I!&rf=viewer_4&t=5
+https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii1.jpg
 
