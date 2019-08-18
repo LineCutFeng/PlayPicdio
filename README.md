@@ -50,19 +50,28 @@ emoji-mosaic
 
 ascii码效果图
 -----
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii1.jpg" width=200 height=340/>&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii2.jpg" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii3.jpg" width=200 height=340/>
+<img src="http://r.photo.store.qq.com/psb?/V12fRHz609Gs9p/q5C6h7875xoHJRqpP7TIiceenrqxH3pTAw0Yds2lsaQ!/r/dIQAAAAAAAAA" width=200 height=340/>&nbsp;&nbsp;
+<img src="http://r.photo.store.qq.com/psb?/V12fRHz609Gs9p/oYrlJbY31zmfYac3qA2gaVWfy0Q.JbKNun7cEYgEbx4!/r/dFQBAAAAAAAA" width=200 height=340/>&nbsp;&nbsp;&nbsp;
+<img src="http://r.photo.store.qq.com/psb?/V12fRHz609Gs9p/vkiKONmFj*OPiiCJkOvcx14N0ALyF.gzgMw4MoW8scY!/r/dEEBAAAAAAAA" width=200 height=340/>
 
 低多边形效果图
 -----
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly1.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly2.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly3.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly4.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly5.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly6.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly7.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly8.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly9.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly10.png" width=200 height=340/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly3.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly4.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly6.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly8.png" width=200 height=340/>
+
 
 emoji-masic效果图
 -----
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji1.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji2.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji3.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji4.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji5.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji6.png" width=200 height=340/>
+<img src="http://m.qpic.cn/psb?/V12fRHz609Gs9p/A8UzAfDj.DSvexg1uk8*WrQs9FSf9e2OeETs2h5NSM4!/b/dDMBAAAAAAAA&bo=7gLoAwAAAAADd1U!&rf=viewer_4" width=200 height=340/>&nbsp;&nbsp;&nbsp;
+<img src="http://m.qpic.cn/psb?/V12fRHz609Gs9p/2fy59povmlJ54qEQC**tRXZ*OJDKJFQZ5H5QvVJg*4E!/b/dDUBAAAAAAAA&bo=IAPZAyAD2QMDd1I!&rf=viewer_4" width=200 height=340/>&nbsp;&nbsp;&nbsp;
+<img src="http://m.qpic.cn/psb?/V12fRHz609Gs9p/ENylgrtonKLtoNRRztsGUyWkEM8UBFMA0QqaXVP2Npo!/b/dLgAAAAAAAAA&bo=kAJFBJACRQQDd1I!&rf=viewer_4" width=200 height=340/>&nbsp;&nbsp;&nbsp;
+<img src="http://m.qpic.cn/psb?/V12fRHz609Gs9p/nOmb2RkGrCjbttziZcO.3s8FBuw9E*2eoWZN5TJ.adE!/b/dFQBAAAAAAAA&bo=wAOgBcADoAUDh6I!&rf=viewer_4" width=200 height=340/>
 
 ascii码视频
 -----
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/fzk.gif" width=300 height=500/>
+<img src="http://m.qpic.cn/psb?/V12fRHz609Gs9p/QRU1K6t8oWL9P3OeMY4JD*AFrRINdeBJDiD.FR5wHY8!/b/dL8AAAAAAAAA&bo=TASjB0wEowcCmb0!&rf=viewer_4" width=300 height=500/>
 
 
 # 🎓 License/许可
@@ -77,4 +86,6 @@ ascii码视频
  - This draft is adapted from the MIT license. For more detailed explanation, please see [Wiki](https://github.com/kattgu7/996-License-Draft/wiki). This license is designed to be compatible with all major open source licenses.  
  - For law professionals or anyone who is willing to contribute to future version directly, please go to [Anti-996-License-1.0](https://github.com/kattgu7/996-License-Draft). Thank you.
 
+http://b304.photo.store.qq.com/psb?/V12fRHz62OxZA5/i8nARdFo4IAx6TO1WeAujQezz6w*dG3dER7GSWMX1YQ!/b/dDABAAAAAAAA&bo=eQLoAwAAAAADF6I!&rf=viewer_4&t=5
+https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii1.jpg
 
