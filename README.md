@@ -79,7 +79,7 @@ emoji-masic效果图
 
 ascii码视频
 -----
-<img src="http://m.qpic.cn/psb?/V12fRHz609Gs9p/QRU1K6t8oWL9P3OeMY4JD*AFrRINdeBJDiD.FR5wHY8!/b/dL8AAAAAAAAA&bo=TASjB0wEowcCmb0!&rf=viewer_4" width=300 height=500/>
+<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lqd.gif" width=300 height=500/>
 
 
 # 🎓 License/许可
