@@ -56,24 +56,16 @@ ascii码效果图
 
 低多边形效果图
 -----
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly1.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly2.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly3.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly4.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly5.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly6.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly7.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly8.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly9.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/lowpoly10.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 
 
 emoji-masic效果图
 -----
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji1.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji2.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji3.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji4.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji5.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji6.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 
