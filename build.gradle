@@ -4,12 +4,21 @@ buildscript {
     ext.kotlin_version = '1.3.21'
 
     repositories {
+        maven { url "https://maven.aliyun.com/repository/apache-snapshots" }
+        maven { url "https://maven.aliyun.com/repository/central" }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/releases' }
+        maven { url 'https://maven.aliyun.com/repository/snapshots' }
+        maven { url 'https://jitpack.io' }
         google()
         jcenter()
         maven {
             url 'https://jitpack.io'
         }
-//        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
@@ -22,12 +31,21 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url "https://maven.aliyun.com/repository/apache-snapshots" }
+        maven { url "https://maven.aliyun.com/repository/central" }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/releases' }
+        maven { url 'https://maven.aliyun.com/repository/snapshots' }
+        maven { url 'https://jitpack.io' }
         google()
         jcenter()
         maven {
             url 'https://jitpack.io'
         }
-//        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
     }
 }
 
