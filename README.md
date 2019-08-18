@@ -50,9 +50,9 @@ emoji-mosaic
 
 ascii码效果图
 -----
-<img src="http://m.qpic.cn/psb?/V12fRHz609Gs9p/q5C6h7875xoHJRqpP7TIiceenrqxH3pTAw0Yds2lsaQ!/b/dIQAAAAAAAAA&bo=xgFQAsYBUAIRCT4!&rf=viewer_4" width=200 height=340/>&nbsp;&nbsp;
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii2.jpg" width=200 height=340/>&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii3.jpg" width=200 height=340/>
+<img src="http://r.photo.store.qq.com/psb?/V12fRHz609Gs9p/q5C6h7875xoHJRqpP7TIiceenrqxH3pTAw0Yds2lsaQ!/r/dIQAAAAAAAAA" width=200 height=340/>&nbsp;&nbsp;
+<img src="http://r.photo.store.qq.com/psb?/V12fRHz609Gs9p/oYrlJbY31zmfYac3qA2gaVWfy0Q.JbKNun7cEYgEbx4!/r/dFQBAAAAAAAA" width=200 height=340/>&nbsp;&nbsp;&nbsp;
+<img src="http://r.photo.store.qq.com/psb?/V12fRHz609Gs9p/vkiKONmFj*OPiiCJkOvcx14N0ALyF.gzgMw4MoW8scY!/r/dEEBAAAAAAAA" width=200 height=340/>
 
 低多边形效果图
 -----
