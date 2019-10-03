@@ -8,7 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +20,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.entity.LocalMedia;
 
@@ -31,7 +32,6 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 import albion.linecutfeng.videotoascii.R;
-import albion.linecutfeng.videotoascii.app.GlideApp;
 import albion.linecutfeng.videotoascii.utils.CommonUtil;
 import albion.linecutfeng.videotoascii.utils.EncodeThread;
 import albion.linecutfeng.videotoascii.utils.FileUtils;
@@ -313,7 +313,7 @@ public class AsciiActivity extends BaseActivity {
                 mediaPath = path;
                 tvPath.setText(file.getName());
                 if (isPic) {
-                    GlideApp
+                    Glide
                             .with(this)
                             .load(path)
                             .into(ivShow);
@@ -323,7 +323,7 @@ public class AsciiActivity extends BaseActivity {
                     if (TextUtils.isEmpty(videoFileLength)) return;
                     if (Integer.parseInt(videoFileLength) > 0) {
                         Bitmap bitmap = mediaDecoder.decodeFrame(0);
-                        GlideApp
+                        Glide
                                 .with(this)
                                 .load(bitmap)
                                 .into(ivShow);

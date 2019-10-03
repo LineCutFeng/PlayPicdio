@@ -43,7 +43,7 @@ public class BitmapCache extends LruCache<Integer, Bitmap> {
     @Override
     protected void entryRemoved(boolean evicted, Integer key, Bitmap oldValue, Bitmap newValue) {
         if (oldValue.isMutable()) {
-            referencesSet.add(new WeakReference<Bitmap>(oldValue, getReferenceQueue()));
+            referencesSet.add(new WeakReference<>(oldValue, getReferenceQueue()));
         }
         super.entryRemoved(evicted, key, oldValue, newValue);
     }

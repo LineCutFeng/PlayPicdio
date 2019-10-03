@@ -37,6 +37,7 @@ public interface SimpleProcessInterface {
     @ProcessFunction
     Bitmap circleLine(Context context, String outputPath);
 
+
     @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
     public @interface ProcessFunction {
