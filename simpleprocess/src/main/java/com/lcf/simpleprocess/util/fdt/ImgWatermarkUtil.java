@@ -19,7 +19,7 @@ public class ImgWatermarkUtil {
      * <pre>
      *     添加图片文字水印
      * <pre>
-     * @author Yangxiaohui
+     * @author fenghongxiang
      * @date 2018-10-25 19:16
      * @param image             图片对象
      * @param watermarkText     水印文字
@@ -51,7 +51,7 @@ public class ImgWatermarkUtil {
      * <pre>
      *     获取图片水印
      * <pre>
-     * @author Yangxiaohui
+     * @author fenghongxiang
      * @date 2018-10-25 19:58
      * @param image
      */
@@ -106,7 +106,7 @@ public class ImgWatermarkUtil {
      * <pre>
      *     为加快傅里叶变换的速度，对要处理的图片尺寸进行优化
      * <pre>
-     * @author Yangxiaohui
+     * @author fenghongxiang
      * @date 2018-10-25 19:33
      * @param image
      * @return
