@@ -1,2 +1,2 @@
 include ':app', ':emojimosaic', ':phantomtank1', ':phantomtank', ':simpleprocess', ':watercolor'
-include ':lowpoly'
+include ':lowpoly',':openCVLibrary340dev'

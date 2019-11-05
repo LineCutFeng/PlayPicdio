@@ -8,6 +8,11 @@ import android.graphics.Paint;
 import android.graphics.PointF;
 
 import com.lcf.simpleprocess.util.ValueUtils;
+import com.lcf.simpleprocess.util.fdt.ImgWatermarkUtil;
+
+import org.opencv.android.Utils;
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
 
 import java.util.Random;
 
@@ -163,6 +168,7 @@ public class SimpleProcess {
         return null;
     }
 
+
     static class TileRefectHelper {
         private final int aasamples;
         private final int width, height;
@@ -255,10 +261,10 @@ public class SimpleProcess {
             paint.setStyle(Paint.Style.STROKE);
             float r = 6;
             while (r <= Math.sqrt(outPut.getWidth() * outPut.getWidth() + outPut.getHeight() * outPut.getHeight())) {
-                float random1 = 1+2 * new Random().nextFloat();
+                float random1 = 1 + 2 * new Random().nextFloat();
                 paint.setStrokeWidth(random1);
                 canvas.drawCircle(centerX, centerY, r, paint);
-                r += (2+ 2 * new Random().nextFloat());
+                r += (2 + 2 * new Random().nextFloat());
             }
             int[] pixels = new int[outPut.getWidth() * outPut.getHeight()];
             outPut.getPixels(pixels, 0, outPut.getWidth(), 0, 0, outPut.getWidth(), outPut.getHeight());
@@ -274,6 +280,50 @@ public class SimpleProcess {
             outPut.setPixels(pixels, 0, outPut.getWidth(), 0, 0, outPut.getWidth(), outPut.getHeight());
 //            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER));
 //            canvas.drawBitmap(bitmap, new Matrix(), paint);
+            return outPut;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 快速傅里叶变换,添加盲水印
+     *
+     * @param inputPath
+     * @return
+     */
+    public static Bitmap FFT(String inputPath,String waterText) {
+        try {
+            Bitmap bitmap = BitmapFactory.decodeFile(inputPath);
+            if (bitmap == null) return null;
+            Mat srcMat = new Mat();
+            Utils.bitmapToMat(bitmap,srcMat);
+            Mat mat = ImgWatermarkUtil.addImageWatermarkWithText(srcMat, waterText);
+            Bitmap outPut = Bitmap.createBitmap(mat.width(), mat.height(), Bitmap.Config.ARGB_8888);
+            Utils.matToBitmap(mat,outPut);
+            return outPut;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 快速傅里叶变换,添加水印
+     *
+     * @param inputPath
+     * @return
+     */
+    public static Bitmap IFFT(String inputPath) {
+        try {
+            Bitmap bitmap = BitmapFactory.decodeFile(inputPath);
+            if (bitmap == null) return null;
+            Mat srcMat = new Mat();
+            Utils.bitmapToMat(bitmap,srcMat);
+            Mat mat = ImgWatermarkUtil.getImageWatermarkWithText(srcMat);
+            Bitmap outPut = Bitmap.createBitmap(mat.width(), mat.height(), Bitmap.Config.ARGB_8888);
+            Utils.matToBitmap(mat,outPut);
             return outPut;
         } catch (Exception e) {
             e.printStackTrace();

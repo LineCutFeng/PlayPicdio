@@ -29,6 +29,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.SingleProcessActivity" />
+        <activity android:name=".activity.DFTProcessActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

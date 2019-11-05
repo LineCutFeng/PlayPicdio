@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.lcf.emojimosaic.EmojiMosaic;
 import com.lcf.simpleprocess.SimpleProcess;
 import com.linecutfeng.lowpoly.LowPoly;
@@ -34,7 +35,6 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 import albion.linecutfeng.videotoascii.R;
-import albion.linecutfeng.videotoascii.app.GlideApp;
 import albion.linecutfeng.videotoascii.interfaces.SimpleProcessInterface;
 import albion.linecutfeng.videotoascii.utils.CommonUtil;
 import albion.linecutfeng.videotoascii.utils.FileUtils;
@@ -44,6 +44,7 @@ import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.functions.Predicate;
@@ -78,11 +79,10 @@ public class SingleProcessActivity extends BaseActivity implements SimpleProcess
         type = getIntent().getStringExtra("type");
         setContentView(R.layout.activity_single_process);
         ButterKnife.bind(this);
-        GlideApp.with(SingleProcessActivity.this)
+        Glide.with(SingleProcessActivity.this)
                 .load(oldPicPath)
                 .into(ivShow);
     }
-
     /**
      * 选择图片
      */
@@ -98,7 +98,7 @@ public class SingleProcessActivity extends BaseActivity implements SimpleProcess
                 break;
             case R.id.bt_old_pic:
                 if (!TextUtils.isEmpty(oldPicPath)) {
-                    GlideApp.with(this)
+                    Glide.with(this)
                             .load(oldPicPath)
                             .into(ivShow);
                 }
@@ -111,7 +111,7 @@ public class SingleProcessActivity extends BaseActivity implements SimpleProcess
 
     private void startConvert() {
         showProgress("开始转化，请稍后...可以喝杯咖啡~");
-        Observable.just(oldPicPath)
+        Disposable subscribe = Observable.just(oldPicPath)
                 .filter(new Predicate<String>() {
                     @Override
                     public boolean test(String s) throws Exception {
@@ -141,7 +141,7 @@ public class SingleProcessActivity extends BaseActivity implements SimpleProcess
                     @Override
                     public void accept(Bitmap s) throws Exception {
                         dismissDialog();
-                        GlideApp.with(SingleProcessActivity.this)
+                        Glide.with(SingleProcessActivity.this)
                                 .load(s)
                                 .into(ivShow);
 
@@ -164,9 +164,7 @@ public class SingleProcessActivity extends BaseActivity implements SimpleProcess
                     if (annotation.annotationType() == ProcessFunction.class) {
                         try {
                             return (Bitmap) declaredMethod.invoke(this, this, outputPath);
-                        } catch (IllegalAccessException e) {
-                            e.printStackTrace();
-                        } catch (InvocationTargetException e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                         break;
@@ -204,7 +202,7 @@ public class SingleProcessActivity extends BaseActivity implements SimpleProcess
                             }
                             Log.i("icv", "path=" + path);
                             oldPicPath = path;
-                            GlideApp.with(this)
+                            Glide.with(this)
                                     .load(oldPicPath)
                                     .into(ivShow);
                         }
@@ -241,7 +239,7 @@ public class SingleProcessActivity extends BaseActivity implements SimpleProcess
                     try {
                         path = FileUtils.getPath(this, uri);
                         oldPicPath = path;
-                        GlideApp.with(this)
+                        Glide.with(this)
                                 .load(oldPicPath)
                                 .into(ivShow);
                     } catch (URISyntaxException e) {
@@ -333,7 +331,5 @@ public class SingleProcessActivity extends BaseActivity implements SimpleProcess
     public Bitmap circleLine(Context context, String outputPath) {
         return SimpleProcess.circleLine(oldPicPath);
     }
-
-
 
 }
