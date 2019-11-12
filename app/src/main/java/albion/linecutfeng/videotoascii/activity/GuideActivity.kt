@@ -123,8 +123,8 @@ class GuideActivity : BaseActivity(), View.OnClickListener {
                 startActivity(intent)
             }
             R.id.bt_11 -> {
-                intent = Intent(this,  DFTProcessActivity::class.java)
-                startActivity(intent)
+//                intent = Intent(this,  DFTProcessActivity::class.java)
+//                startActivity(intent)
             }
         }
     }
