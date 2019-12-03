@@ -101,7 +101,7 @@ ascii码视频
  - For law professionals or anyone who is willing to contribute to future version directly, please go to [Anti-996-License-1.0](https://github.com/kattgu7/996-License-Draft). Thank you.
 
 ```
-sequenceDiagram
+sequence
 A->>B: How are you?
 B->>A: Great!
 ```
