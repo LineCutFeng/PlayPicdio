@@ -55,6 +55,8 @@ emoji-mosaic
 - 同心圆效果（待优化）
 - 幻影坦克（module未集成到主app）
 
+因为完整效果图片尺寸过大，所以实例图片经过了高度压缩，完整效果参见博客
+
 ascii码效果图
 -----
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/ascii1.png" width=200 height=340/>&nbsp;&nbsp;&nbsp;
