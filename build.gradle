@@ -2,19 +2,19 @@
 
 buildscript {
     ext {
-        kotlin_version = '1.3.21'
-        compile_SdkVersion = 28
-        target_SdkVersion = 28
-        min_SdkVersion = 19
+        kotlin_version = '1.3.40'
+        compile_SdkVersion = 31
+        target_SdkVersion = 31
+        min_SdkVersion = 23
         appcompat_version = '1.1.0'
     }
 
     repositories {
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
-        maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
-        maven { url "http://maven.aliyun.com/nexus/content/repositories/releases/" }
-        maven { url "http://maven.aliyun.com/nexus/content/repositories/snapshots" }
+//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+//        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+//        maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
+//        maven { url "http://maven.aliyun.com/nexus/content/repositories/releases/" }
+//        maven { url "http://maven.aliyun.com/nexus/content/repositories/snapshots" }
         jcenter()
         google()
         mavenCentral()
@@ -22,7 +22,7 @@ buildscript {
         maven { url 'https://jitpack.io' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:7.0.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -32,11 +32,11 @@ buildscript {
 
 allprojects {
     repositories {
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
-        maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
-        maven { url "http://maven.aliyun.com/nexus/content/repositories/releases/" }
-        maven { url "http://maven.aliyun.com/nexus/content/repositories/snapshots" }
+//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+//        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+//        maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
+//        maven { url "http://maven.aliyun.com/nexus/content/repositories/releases/" }
+//        maven { url "http://maven.aliyun.com/nexus/content/repositories/snapshots" }
         jcenter()
         google()
         mavenCentral()

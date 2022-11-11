@@ -21,14 +21,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.entity.LocalMedia;
+import com.luck.picture.lib.interfaces.OnResultCallbackListener;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 
 import albion.linecutfeng.videotoascii.R;
@@ -42,11 +43,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import codepig.ffmpegcldemo.FFmpegKit;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.functions.Consumer;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static albion.linecutfeng.videotoascii.app.AppConfig.AUDIO_PATH;
 import static albion.linecutfeng.videotoascii.app.AppConfig.BASE_PATH;
@@ -120,7 +121,55 @@ public class AsciiActivity extends BaseActivity {
      * 选择图片
      */
     private void selectMedia() {
-        CommonUtil.choosePhoto(this, CHOOSE_REQUEST);
+        CommonUtil.choosePhoto(this, new OnResultCallbackListener<LocalMedia>() {
+            @Override
+            public void onResult(ArrayList<LocalMedia> selectList) {
+                String path = "";
+                if (selectList != null && selectList.size() > 0) {
+                    LocalMedia localMedia = selectList.get(0);
+                    if (localMedia.isCompressed()) {
+                        path = localMedia.getCompressPath();
+                    } else if (localMedia.isCut()) {
+                        path = localMedia.getCutPath();
+                    } else {
+                        path = localMedia.getPath();
+                    }
+                }
+                if (TextUtils.isEmpty(path)) {
+                    Toast.makeText(AsciiActivity.this, "请选择有效文件！", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (MediaFile.isPictureFileType(path)) {
+                    fileType = FILE_TYPE.pic;
+                    path = CommonUtil.amendRotatePhoto(path, AsciiActivity.this);
+                    showMedia(path, true);
+                    Toast.makeText(AsciiActivity.this, "是图片", Toast.LENGTH_SHORT).show();
+                } else if (MediaFile.isVideoFileType(path)) {
+                    fileType = FILE_TYPE.video;
+                    showMedia(path, false);
+                    Toast.makeText(AsciiActivity.this, "是视频", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancel() {
+                new AlertDialog.Builder(AsciiActivity.this)
+                        .setMessage("没找到心仪的图片？是否进入到文件选择器选择？")
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                showFileChooser();
+                                dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).show();
+            }
+        });
     }
 
     /**
@@ -345,54 +394,6 @@ public class AsciiActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         layoutStep2.setVisibility(View.GONE);
         switch (requestCode) {
-            case CHOOSE_REQUEST:
-                if (resultCode == RESULT_OK) {
-                    if (requestCode == CHOOSE_REQUEST) {
-                        List<LocalMedia> selectList = PictureSelector.obtainMultipleResult(data);
-                        String path = "";
-                        if (selectList != null && selectList.size() > 0) {
-                            LocalMedia localMedia = selectList.get(0);
-                            if (localMedia.isCompressed()) {
-                                path = localMedia.getCompressPath();
-                            } else if (localMedia.isCut()) {
-                                path = localMedia.getCutPath();
-                            } else {
-                                path = localMedia.getPath();
-                            }
-                        }
-                        if (TextUtils.isEmpty(path)) {
-                            Toast.makeText(this, "请选择有效文件！", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        if (MediaFile.isPictureFileType(path)) {
-                            fileType = FILE_TYPE.pic;
-                            path = CommonUtil.amendRotatePhoto(path, AsciiActivity.this);
-                            showMedia(path, true);
-                            Toast.makeText(this, "是图片", Toast.LENGTH_SHORT).show();
-                        } else if (MediaFile.isVideoFileType(path)) {
-                            fileType = FILE_TYPE.video;
-                            showMedia(path, false);
-                            Toast.makeText(this, "是视频", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                } else if (resultCode == RESULT_CANCELED) {
-                    new AlertDialog.Builder(this)
-                            .setMessage("没找到心仪的图片？是否进入到文件选择器选择？")
-                            .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    showFileChooser();
-                                    dialog.dismiss();
-                                }
-                            })
-                            .setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            }).show();
-                }
-                break;
             case FILE_REQUEST_CODE:
                 if (resultCode == RESULT_OK) {
                     // Get the Uri of the selected file
