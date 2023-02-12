@@ -74,7 +74,6 @@ emoji-masic效果图
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji1.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji2.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji5.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/GodFengShen/PicOrVideoToAscii/blob/master/pic/emoji6.webp" width=200 height=340/>&nbsp;&nbsp;&nbsp;
 
 光盘效果图
 -----
